@@ -41,8 +41,6 @@ import org.n52.series.db.dao.ProcedureDao;
 
 public class ProxyProcedureDao extends ProcedureDao implements InsertDao<ProcedureEntity>, ClearDao<ProcedureEntity> {
 
-    private static final String COLUMN_SERVICE_PKID = "service.pkid";
-
     public ProxyProcedureDao(Session session) {
         super(session);
     }

@@ -43,8 +43,6 @@ import org.n52.series.db.dao.OfferingDao;
 
 public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingEntity>, ClearDao<OfferingEntity> {
 
-    private static final String COLUMN_SERVICE_PKID = "service.pkid";
-
     public ProxyOfferingDao(Session session) {
         super(session);
     }

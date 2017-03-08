@@ -44,12 +44,12 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProxyDatasetDao.class);
 
-    private static final String COLUMN_SERVICE_PKID = "service.pkid";
     private static final String COLUMN_CATEGORY_PKID = "category.pkid";
     private static final String COLUMN_FEATURE_PKID = "feature.pkid";
     private static final String COLUMN_PROCEDURE_PKID = "procedure.pkid";
     private static final String COLUMN_PHENOMENON_PKID = "phenomenon.pkid";
     private static final String COLUMN_UNIT_PKID = "unit.pkid";
+    private static final String COLUMN_OFFERING_PKID = "offering.pkid";
 
     public ProxyDatasetDao(Session session) {
         super(session);

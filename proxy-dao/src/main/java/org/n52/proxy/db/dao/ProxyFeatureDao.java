@@ -41,8 +41,6 @@ import org.n52.series.db.dao.FeatureDao;
 
 public class ProxyFeatureDao extends FeatureDao implements InsertDao<FeatureEntity>, ClearDao<FeatureEntity> {
 
-    private static final String COLUMN_SERVICE_PKID = "service.pkid";
-
     public ProxyFeatureDao(Session session) {
         super(session);
     }

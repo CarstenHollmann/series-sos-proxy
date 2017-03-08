@@ -41,8 +41,6 @@ import org.n52.series.db.dao.PhenomenonDao;
 
 public class ProxyPhenomenonDao extends PhenomenonDao implements InsertDao<PhenomenonEntity>, ClearDao<PhenomenonEntity> {
 
-    private static final String COLUMN_SERVICE_PKID = "service.pkid";
-
     public ProxyPhenomenonDao(Session session) {
         super(session);
     }

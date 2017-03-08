@@ -30,6 +30,10 @@ package org.n52.proxy.db.dao;
 
 public interface InsertDao<T> {
 
+    String COLUMN_NAME = "name";
+
+    String COLUMN_SERVICE_PKID = "service.pkid";
+
     T getOrInsertInstance(T object);
 
 }

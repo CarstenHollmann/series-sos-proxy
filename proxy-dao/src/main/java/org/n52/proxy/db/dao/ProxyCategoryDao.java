@@ -41,8 +41,6 @@ import org.n52.series.db.dao.CategoryDao;
 
 public class ProxyCategoryDao extends CategoryDao implements InsertDao<CategoryEntity>, ClearDao<CategoryEntity> {
 
-    private static final String COLUMN_SERVICE_PKID = "service.pkid";
-
     public ProxyCategoryDao(Session session) {
         super(session);
     }
