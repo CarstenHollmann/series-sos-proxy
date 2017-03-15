@@ -51,8 +51,15 @@ public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingE
     public OfferingEntity getOrInsertInstance(OfferingEntity offering) {
         OfferingEntity instance = getInstance(offering);
         if (instance == null) {
-            this.session.save(offering);
+            session.save(offering);
+            session.flush();
+            session.refresh(offering);
             instance = offering;
+        } else {
+            updateOfferingTimestamps(instance, offering);
+            session.update(instance);
+            session.flush();
+            session.refresh(instance);
         }
         return instance;
     }
@@ -79,6 +86,21 @@ public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingE
         DetachedCriteria filter = DetachedCriteria.forClass(DatasetEntity.class)
                 .setProjection(Projections.distinct(Projections.property(getSeriesProperty())));
         return filter;
+    }
+
+    private void updateOfferingTimestamps(OfferingEntity oldOffering, OfferingEntity newOffering) {
+            if (oldOffering.getPhenomenonTimeStart() == null ||
+                     (oldOffering.getPhenomenonTimeStart() != null && oldOffering.getPhenomenonTimeStart().after(
+                             newOffering.getPhenomenonTimeStart()))) {
+                oldOffering.setPhenomenonTimeStart(newOffering.getPhenomenonTimeStart());
+            }
+            if (oldOffering.getPhenomenonTimeEnd() == null ||
+                    (oldOffering.getPhenomenonTimeEnd() != null && oldOffering.getPhenomenonTimeEnd().before(
+                            newOffering.getPhenomenonTimeEnd()))) {
+                oldOffering.setPhenomenonTimeEnd(newOffering.getPhenomenonTimeEnd());
+            }
+            session.saveOrUpdate(oldOffering);
+            session.flush();
     }
 
     @SuppressWarnings("unchecked")

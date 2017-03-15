@@ -53,6 +53,7 @@ import org.n52.series.db.beans.FeatureEntity;
 import org.n52.series.db.beans.OfferingEntity;
 import org.n52.series.db.beans.PhenomenonEntity;
 import org.n52.series.db.beans.ProcedureEntity;
+import org.n52.series.db.beans.UnitEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -216,5 +217,4 @@ public class InsertRepository extends SessionAwareRepository {
         }
         return new ProxyDatasetDao(session).getOrInsertInstance(dataset);
     }
-
 }
