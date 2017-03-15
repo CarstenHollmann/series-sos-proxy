@@ -49,7 +49,9 @@ public class ProxyProcedureDao extends ProcedureDao implements InsertDao<Procedu
     public ProcedureEntity getOrInsertInstance(ProcedureEntity procedure) {
         ProcedureEntity instance = getInstance(procedure);
         if (instance == null) {
-            this.session.save(procedure);
+            session.save(procedure);
+            session.flush();
+            session.refresh(procedure);
             instance = procedure;
         }
         return instance;

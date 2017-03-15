@@ -48,7 +48,6 @@ import org.n52.series.db.dao.DbQuery;
 
 public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> implements InsertDao<RelatedFeatureEntity>, ClearDao<RelatedFeatureEntity> {
 
-
     private static final String SERIES_PROPERTY = "relatedFeature";
 
     public ProxyRelatedFeatureDao(Session session) {
@@ -80,7 +79,9 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
     public RelatedFeatureEntity getOrInsertInstance(RelatedFeatureEntity relatedFeature) {
         RelatedFeatureEntity instance = getInstance(relatedFeature);
         if (instance == null) {
-            this.session.save(relatedFeature);
+            session.save(relatedFeature);
+            session.flush();
+            session.refresh(relatedFeature);
             instance = relatedFeature;
         }
         return instance;

@@ -53,18 +53,23 @@ public class ProxyServiceDao extends ServiceDao implements InsertDao<ProxyServic
     public ProxyServiceEntity getOrInsertInstance(ProxyServiceEntity service) {
         ProxyServiceEntity instance = getInstance(service);
         if (instance == null) {
-            this.session.save(service);
-            LOGGER.info("Save service: " + service);
+            session.save(service);
+            session.flush();
+            session.refresh(service);
+            LOGGER.debug("Save service: " + service);
             instance = service;
         }
         return instance;
     }
 
     private ProxyServiceEntity getInstance(ProxyServiceEntity service) {
-        Criteria criteria = session.createCriteria(getEntityClass())
+        Criteria criteria = session.createCriteria(getProxyEntityClass())
                 .add(Restrictions.eq(COLUMN_TYPE, service.getType()))
                 .add(Restrictions.eq(COLUMN_URL, service.getUrl()));
         return (ProxyServiceEntity) criteria.uniqueResult();
     }
 
+    protected Class<ProxyServiceEntity> getProxyEntityClass() {
+        return ProxyServiceEntity.class;
+    }
 }

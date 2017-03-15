@@ -49,7 +49,9 @@ public class ProxyPhenomenonDao extends PhenomenonDao implements InsertDao<Pheno
     public PhenomenonEntity getOrInsertInstance(PhenomenonEntity phenomenon) {
         PhenomenonEntity instance = getInstance(phenomenon);
         if (instance == null) {
-            this.session.save(phenomenon);
+            session.save(phenomenon);
+            session.flush();
+            session.refresh(phenomenon);
             instance = phenomenon;
         }
         return instance;
