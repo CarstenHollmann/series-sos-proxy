@@ -4,16 +4,14 @@
     <class name="DataEntity" table="observation">
         <id name="pkid" type="long">
             <column name="observationid"/>
-            <generator class="native">
-                <param name="sequence">observationId_seq</param>
-            </generator>
+            <generator class="assigned"/>
         </id>
         <property column="seriesid" name="seriesPkid" type="long"/>
         <property column="phenomenonTimeStart" name="timestamp" type="timestamp"/>
         <property column="deleted" name="deleted" type="org.hibernate.type.TrueFalseType"/>
         <property column="validTimeStart" name="validTimeStart" not-null="false" type="timestamp"/>
         <property column="validTimeEnd" name="validTimeEnd" not-null="false" type="timestamp"/>
-        <component class="org.n52.series.db.beans.GeometryEntity" name="geometry">
+        <component class="GeometryEntity" name="geometry">
             <!--
            <property column="lat" name="lat" type="double" />
            <property column="lon" name="lon" type="double" />
@@ -21,11 +19,12 @@
             <property column="samplingGeometry" name="geometry" type="org.hibernate.spatial.GeometryType"/>
         </component>
         <!-- Or add only to specific joined-subclasses -->
-        <!--<set inverse="true" name="parameters" table="parameters">
+        <!--
+        <set inverse="true" name="parameters" table="parameters">
             <key column="observationid" not-null="true"/>
-            <one-to-many class="DataParameter"/>
-        </set>-->
-
+            <one-to-many class="org.n52.series.db.beans.parameter.ObservationParameter"/>
+        </set>
+ 		-->
         <joined-subclass extends="DataEntity" name="MeasurementDataEntity" table="numericValue">
             <key column="observationid"/>
             <property column="value" name="value" type="double"/>

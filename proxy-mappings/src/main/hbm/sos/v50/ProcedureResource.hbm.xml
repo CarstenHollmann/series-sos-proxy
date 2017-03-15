@@ -17,14 +17,14 @@
         <property column="mobile" name="mobile" type="org.hibernate.type.TrueFalseType"/>
         <property column="insitu" name="insitu" type="org.hibernate.type.TrueFalseType"/>
         <many-to-one class="ServiceEntity" column="serviceid" name="service" unique-key="procIdentifier"/>
-        <set name="childs" table="procedurehierarchy" inverse="false" fetch="select" cascade="all">
-            <key column="parentProcedureId" not-null="true"/>
-            <many-to-many entity-name="org.n52.series.db.beans.ProcedureEntity" column="childProcedureId" foreign-key="procedureChildFk"/>
-        </set>
-        <set name="parents" table="procedurehierarchy" inverse="false" fetch="select" cascade="all">
-            <key column="childProcedureId" not-null="true"/>
-            <many-to-many entity-name="org.n52.series.db.beans.ProcedureEntity" column="parentProcedureId" foreign-key="procedureParentFk"/>
-        </set>
+        <set name="children" table="sensorssytem" inverse="false" fetch="select">
+	        <key column="parentProcedureId" not-null="true"/>
+	        <many-to-many class="ProcedureEntity" column="childProcedureId" />
+	    </set>
+	    <set name="parents" table="sensorssytem" inverse="false" fetch="select">
+	        <key column="childProcedureId" not-null="true"/>
+	        <many-to-many class="ProcedureEntity" column="parentProcedureId" />
+	    </set>
         <property column="proceduredescriptionformat" name="procedureDescriptionFormat" type="string"/>
     </class>
 </hibernate-mapping>
