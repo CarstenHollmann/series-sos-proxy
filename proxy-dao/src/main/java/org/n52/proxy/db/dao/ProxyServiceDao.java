@@ -28,6 +28,7 @@
  */
 package org.n52.proxy.db.dao;
 
+import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -40,7 +41,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ProxyServiceDao extends ServiceDao implements InsertDao<ProxyServiceEntity> {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(ProxyServiceDao.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProxyServiceDao.class);
 
     private static final String COLUMN_TYPE = "type";
     private static final String COLUMN_URL = "url";
@@ -72,4 +73,13 @@ public class ProxyServiceDao extends ServiceDao implements InsertDao<ProxyServic
     protected Class<ProxyServiceEntity> getProxyEntityClass() {
         return ProxyServiceEntity.class;
     }
+    public List<ProxyServiceEntity> getAllServices() {
+        Criteria criteria = getDefaultCriteria();
+        return criteria.list();
+    }
+
+    public void deleteInstance(ProxyServiceEntity service) {
+        this.session.delete(service);
+    }
+
 }

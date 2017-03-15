@@ -29,10 +29,10 @@
 package org.n52.proxy.db.dao;
 
 import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.MeasurementDatasetEntity;
 import org.n52.series.db.beans.ServiceEntity;
@@ -45,6 +45,7 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProxyDatasetDao.class);
 
+    private static final String COLUMN_DATASETTYPE = "datasetType";
     private static final String COLUMN_CATEGORY_PKID = "category.pkid";
     private static final String COLUMN_FEATURE_PKID = "feature.pkid";
     private static final String COLUMN_PROCEDURE_PKID = "procedure.pkid";
@@ -70,7 +71,9 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
             session.save(dataset);
             LOGGER.debug("Save dataset: " + dataset);
         } else {
-            instance.setDeleted(Boolean.FALSE);
+            // TODO find good solution to recreate the dataset entities
+            instance.setDomainId(null);
+//            instance.setDeleted(Boolean.FALSE);
             instance.setPublished(Boolean.TRUE);
             updateSeriesWithFirstLatestValues(instance, dataset);
             session.update(instance);
@@ -124,7 +127,9 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
     public void markAsDeletedForService(ServiceEntity service) {
         List<T> datasets = getDatasetsForService(service);
         datasets.stream().map((dataset) -> {
-            dataset.setDeleted(Boolean.TRUE);
+            // TODO find good solution to recreate the dataset entities
+//            dataset.setDeleted(Boolean.TRUE);
+            dataset.setDomainId("deleted");
             return dataset;
         }).forEach((dataset) -> {
             session.saveOrUpdate(dataset);
@@ -141,6 +146,18 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
         session.flush();
     }
 
+    public void removeAllOfService(ProxyServiceEntity service) {
+        getDefaultCriteria()
+                .add(Restrictions.eq(COLUMN_SERVICE_PKID, service.getPkid()))
+                .list()
+                .forEach((dataset) -> session.delete(dataset));
+        session.createCriteria(UnitEntity.class)
+                .add(Restrictions.eq(COLUMN_SERVICE_PKID, service.getPkid()))
+                .list()
+                .forEach((unit) -> session.delete(unit));
+        session.flush();
+    }
+
     private UnitEntity getUnit(UnitEntity unit) {
         Criteria criteria = session.createCriteria(UnitEntity.class)
                 .add(Restrictions.eq("name", unit.getName()))
@@ -150,7 +167,7 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
 
     private DatasetEntity getInstance(DatasetEntity dataset) {
         Criteria criteria = session.createCriteria(getEntityClass())
-                .add(Restrictions.eq("datasetType", dataset.getDatasetType()))
+                .add(Restrictions.eq(COLUMN_DATASETTYPE, dataset.getDatasetType()))
                 .add(Restrictions.eq(COLUMN_CATEGORY_PKID, dataset.getCategory().getPkid()))
                 .add(Restrictions.eq(COLUMN_FEATURE_PKID, dataset.getFeature().getPkid()))
                 .add(Restrictions.eq(COLUMN_PROCEDURE_PKID, dataset.getProcedure().getPkid()))
@@ -170,9 +187,11 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
     }
 
     private List<T> getDeletedMarkDatasets(ServiceEntity service) {
+        // TODO find good solution to recreate the dataset entities
         Criteria criteria = getDefaultCriteria()
                 .add(Restrictions.eq(COLUMN_SERVICE_PKID, service.getPkid()))
-                .add(Restrictions.eq("deleted", Boolean.TRUE));
+                //                .add(Restrictions.eq("deleted", Boolean.TRUE));
+                .add(Restrictions.isNotNull("domainId"));
         return criteria.list();
     }
 }

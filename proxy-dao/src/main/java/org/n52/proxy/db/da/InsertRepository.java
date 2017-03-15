@@ -59,7 +59,7 @@ import org.slf4j.LoggerFactory;
 
 public class InsertRepository extends SessionAwareRepository {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(InsertRepository.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(InsertRepository.class);
 
     public synchronized void prepareInserting(ProxyServiceEntity service) {
         Session session = getSession();
@@ -93,6 +93,38 @@ public class InsertRepository extends SessionAwareRepository {
         }
     }
 
+    public void removeNonMatchingServices(Set<String> configuredUrls) {
+        Session session = getSession();
+        try {
+            new ProxyServiceDao(session).getAllServices().stream()
+                    .filter((t) -> !configuredUrls.contains(t.getUrl()))
+                    .forEach(this::removeService);
+        } finally {
+            returnSession(session);
+        }
+    }
+
+    private void removeService(ProxyServiceEntity service) {
+        Session session = getSession();
+        try {
+            Transaction transaction = session.beginTransaction();
+
+            new ProxyDatasetDao(session).removeAllOfService(service);
+            new ProxyCategoryDao(session).clearUnusedForService(service);
+            new ProxyOfferingDao(session).clearUnusedForService(service);
+            new ProxyProcedureDao(session).clearUnusedForService(service);
+            new ProxyFeatureDao(session).clearUnusedForService(service);
+            new ProxyPhenomenonDao(session).clearUnusedForService(service);
+            new ProxyRelatedFeatureDao(session).clearUnusedForService(service);
+            new ProxyServiceDao(session).deleteInstance(service);
+
+            session.flush();
+            transaction.commit();
+        } finally {
+            returnSession(session);
+        }
+    }
+
     public ProxyServiceEntity insertService(ProxyServiceEntity service) {
         Session session = getSession();
         try {
@@ -106,6 +138,10 @@ public class InsertRepository extends SessionAwareRepository {
         }
     }
 
+    private ProxyServiceEntity insertService(ProxyServiceEntity service, Session session) {
+        return new ProxyServiceDao(session).getOrInsertInstance(service);
+    }
+
     public void insertOffering(OfferingEntity offeringEntity) {
         Session session = getSession();
         try {
@@ -116,7 +152,10 @@ public class InsertRepository extends SessionAwareRepository {
         } finally {
             returnSession(session);
         }
+    }
 
+    private OfferingEntity insertOffering(OfferingEntity offering, Session session) {
+        return new ProxyOfferingDao(session).getOrInsertInstance(offering);
     }
 
     public synchronized void insertDataset(DatasetEntity dataset) {
@@ -145,6 +184,19 @@ public class InsertRepository extends SessionAwareRepository {
         }
     }
 
+    private DatasetEntity insertDataset(DatasetEntity dataset, CategoryEntity category, ProcedureEntity procedure,
+            OfferingEntity offering, FeatureEntity feature, PhenomenonEntity phenomenon, Session session) {
+        dataset.setCategory(category);
+        dataset.setProcedure(procedure);
+        dataset.setOffering(offering);
+        dataset.setFeature(feature);
+        dataset.setPhenomenon(phenomenon);
+        if (dataset.getUnit() != null) {
+            dataset.getUnit().setService(dataset.getService());
+        }
+        return new ProxyDatasetDao(session).getOrInsertInstance(dataset);
+    }
+
     public synchronized void insertRelatedFeature(Collection<RelatedFeatureEntity> relatedFeatures) {
         Session session = getSession();
         try {
@@ -155,34 +207,10 @@ public class InsertRepository extends SessionAwareRepository {
             session.flush();
             transaction.commit();
         } catch (HibernateException e) {
-            LOGGER.error("Error occured while saving dataset: ", e);
+            LOGGER.error("Error occured while saving related feature: ", e);
         } finally {
             returnSession(session);
         }
-    }
-
-    private ProxyServiceEntity insertService(ProxyServiceEntity service, Session session) {
-        return new ProxyServiceDao(session).getOrInsertInstance(service);
-    }
-
-    private ProcedureEntity insertProcedure(ProcedureEntity procedure, Session session) {
-        return new ProxyProcedureDao(session).getOrInsertInstance(procedure);
-    }
-
-    private CategoryEntity insertCategory(CategoryEntity category, Session session) {
-        return new ProxyCategoryDao(session).getOrInsertInstance(category);
-    }
-
-    private FeatureEntity insertFeature(FeatureEntity feature, Session session) {
-        return new ProxyFeatureDao(session).getOrInsertInstance(feature);
-    }
-
-    private PhenomenonEntity insertPhenomenon(PhenomenonEntity phenomenon, Session session) {
-        return new ProxyPhenomenonDao(session).getOrInsertInstance(phenomenon);
-    }
-
-    private OfferingEntity insertOffering(OfferingEntity offering, Session session) {
-        return new ProxyOfferingDao(session).getOrInsertInstance(offering);
     }
 
     private RelatedFeatureEntity insertRelatedFeature(RelatedFeatureEntity relatedFeature, Session session) {
@@ -202,19 +230,24 @@ public class InsertRepository extends SessionAwareRepository {
         return new ProxyRelatedFeatureDao(session).getOrInsertInstance(relatedFeature);
     }
 
-    private RelatedFeatureRoleEntity insertRelatedFeatureRole(RelatedFeatureRoleEntity relatedFeatureRole, Session session) {
-        return new ProxyRelatedFeatureRoleDao(session).getOrInsertInstance(relatedFeatureRole);
+    private ProcedureEntity insertProcedure(ProcedureEntity procedure, Session session) {
+        return new ProxyProcedureDao(session).getOrInsertInstance(procedure);
     }
 
-    private DatasetEntity insertDataset(DatasetEntity dataset, CategoryEntity category, ProcedureEntity procedure, OfferingEntity offering, FeatureEntity feature, PhenomenonEntity phenomenon, Session session) {
-        dataset.setCategory(category);
-        dataset.setProcedure(procedure);
-        dataset.setOffering(offering);
-        dataset.setFeature(feature);
-        dataset.setPhenomenon(phenomenon);
-        if (dataset.getUnit() != null) {
-            dataset.getUnit().setService(dataset.getService());
-        }
-        return new ProxyDatasetDao(session).getOrInsertInstance(dataset);
+    private CategoryEntity insertCategory(CategoryEntity category, Session session) {
+        return new ProxyCategoryDao(session).getOrInsertInstance(category);
+    }
+
+    private FeatureEntity insertFeature(FeatureEntity feature, Session session) {
+        return new ProxyFeatureDao(session).getOrInsertInstance(feature);
+    }
+
+    private PhenomenonEntity insertPhenomenon(PhenomenonEntity phenomenon, Session session) {
+        return new ProxyPhenomenonDao(session).getOrInsertInstance(phenomenon);
+    }
+
+    private RelatedFeatureRoleEntity insertRelatedFeatureRole(RelatedFeatureRoleEntity relatedFeatureRole,
+            Session session) {
+        return new ProxyRelatedFeatureRoleDao(session).getOrInsertInstance(relatedFeatureRole);
     }
 }
