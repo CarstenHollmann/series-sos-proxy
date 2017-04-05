@@ -34,11 +34,12 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import static org.hibernate.criterion.Restrictions.eq;
 import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Subqueries;
 import org.n52.proxy.db.beans.RelatedFeatureEntity;
-import org.n52.proxy.db.beans.RelatedFeatureRoleEntity;
+import static org.n52.proxy.db.beans.RelatedFeatureEntity.FEATURE;
+import static org.n52.proxy.db.beans.RelatedFeatureEntity.SERVICE;
 import org.n52.series.db.DataAccessException;
 import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.ProcedureEntity;
@@ -56,13 +57,13 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
 
     @Override
     public List<RelatedFeatureEntity> find(DbQuery query) {
-        return new ArrayList<RelatedFeatureEntity>();
+        return new ArrayList<>();
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public List<RelatedFeatureEntity> getAllInstances(DbQuery query) throws DataAccessException {
-        return (List<RelatedFeatureEntity>) getDefaultCriteria().list();
+        return getDefaultCriteria().list();
     }
 
     @Override
@@ -90,7 +91,7 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
     @Override
     public void clearUnusedForService(ServiceEntity service) {
         Criteria criteria = session.createCriteria(getEntityClass())
-                .add(Restrictions.eq(RelatedFeatureEntity.SERVICE, service));
+                .add(eq(SERVICE, service));
         criteria.list().forEach(entry -> {
             session.delete(entry);
         });
@@ -98,8 +99,8 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
 
     private RelatedFeatureEntity getInstance(RelatedFeatureEntity relatedFeature) {
         Criteria criteria = session.createCriteria(getEntityClass())
-                .add(Restrictions.eq(RelatedFeatureEntity.FEATURE, relatedFeature.getFeature()))
-                .add(Restrictions.eq(RelatedFeatureEntity.SERVICE, relatedFeature.getService()));
+                .add(eq(FEATURE, relatedFeature.getFeature()))
+                .add(eq(SERVICE, relatedFeature.getService()));
         return (RelatedFeatureEntity) criteria.uniqueResult();
     }
 
