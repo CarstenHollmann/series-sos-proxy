@@ -67,7 +67,7 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
     }
 
     @Override
-    protected String getSeriesProperty() {
+    protected String getDatasetProperty() {
         return SERIES_PROPERTY;
     }
 

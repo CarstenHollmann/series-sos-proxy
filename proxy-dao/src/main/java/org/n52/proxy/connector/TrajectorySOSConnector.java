@@ -37,7 +37,6 @@ import java.util.Optional;
 import static java.util.Optional.of;
 import org.joda.time.DateTime;
 import org.n52.proxy.config.DataSourceConfiguration;
-import org.n52.proxy.connector.constellations.MeasurementDatasetConstellation;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addCategory;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addOffering;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addPhenomenon;
@@ -45,6 +44,8 @@ import static org.n52.proxy.connector.utils.ConnectorHelper.addProcedure;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addService;
 import static org.n52.proxy.connector.utils.ConnectorHelper.createTimeInstantFilter;
 import static org.n52.proxy.connector.utils.EntityBuilder.createUnit;
+
+import org.n52.proxy.connector.constellations.MeasurementDatasetConstellation;
 import org.n52.proxy.connector.utils.ServiceConstellation;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.DataEntity;
@@ -135,7 +136,7 @@ public class TrajectorySOSConnector extends AbstractSosConnector {
                     geometryEntity.setLat(geom.getGeometry().getCoordinate().x);
                     geometryEntity.setLon(geom.getGeometry().getCoordinate().y);
                     geometryEntity.setAlt(geom.getGeometry().getCoordinate().z);
-                    entity.setGeometry(geometryEntity);
+                    entity.setGeometryEntity(geometryEntity);
                 }
             });
             data.add(entity);

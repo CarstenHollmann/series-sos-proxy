@@ -14,8 +14,8 @@
 
     <properties>
         <hibernate.spatial.version>4.3.1-52N</hibernate.spatial.version>
-        <postgresql.version>9.4.1208.jre7</postgresql.version>
-        <postgis.version>2.2.0</postgis.version>
+        <postgresql.version>42.0.0.jre7</postgresql.version>
+        <postgis.version>2.2.1</postgis.version>
         <!--<hibernate.version>5.1.0.Final</hibernate.version>-->
     </properties>
     
@@ -26,7 +26,11 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>series-dao</artifactId>
+            <artifactId>spi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.n52.series-api.db</groupId>
+            <artifactId>dao</artifactId>
         </dependency>
         <!-- 
         <dependency>
@@ -50,6 +54,10 @@
         <dependency>
             <groupId>org.n52.svalbard</groupId>
             <artifactId>svalbard</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.n52.svalbard</groupId>
+            <artifactId>svalbard-xmlbeans</artifactId>
         </dependency>
         
         <dependency>
@@ -138,12 +146,6 @@
                     <artifactId>gson</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        
-        <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>1</version>
         </dependency>
         
         <dependency>

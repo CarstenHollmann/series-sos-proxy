@@ -67,6 +67,7 @@
         <janmayen.version>1-SNAPSHOT</janmayen.version>
         <iceland.version>2-SNAPSHOT</iceland.version>
         <series.api.version>2.0.0-SNAPSHOT</series.api.version>
+        <series.dao.version>2.0.0-SNAPSHOT</series.dao.version>
 
         <java.compiler.source>1.8</java.compiler.source>
         <java.compiler.target>1.8</java.compiler.target>
@@ -102,8 +103,13 @@
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>series-dao</artifactId>
+                <artifactId>spi</artifactId>
                 <version>${series.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.n52.series-api.db</groupId>
+                <artifactId>dao</artifactId>
+                <version>${series.dao.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.n52.sensorweb</groupId>
@@ -114,6 +120,11 @@
             <dependency>
                 <groupId>org.n52.svalbard</groupId>
                 <artifactId>svalbard</artifactId>
+                <version>${svalbard.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.n52.svalbard</groupId>
+                <artifactId>svalbard-xmlbeans</artifactId>
                 <version>${svalbard.version}</version>
             </dependency>
             <dependency>

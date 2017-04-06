@@ -41,8 +41,10 @@ import org.n52.series.db.beans.OfferingEntity;
 import org.n52.series.db.beans.PhenomenonEntity;
 import org.n52.series.db.beans.ProcedureEntity;
 import org.n52.series.db.beans.UnitEntity;
-import org.n52.svalbard.decode.exception.DecodingException;
-import static org.n52.svalbard.util.JTSHelper.createGeometryFromWKT;
+
+import com.vividsolutions.jts.io.ParseException;
+
+import static org.n52.shetland.util.JTSHelper.createGeometryFromWKT;
 
 public class EntityBuilder {
 
@@ -102,7 +104,7 @@ public class EntityBuilder {
         GeometryEntity geometry = new GeometryEntity();
         try {
             geometry.setGeometry(createGeometryFromWKT("POINT (" + longitude + " " + latitude + ")", srid));
-        } catch (DecodingException ex) {
+        } catch (ParseException ex) {
             getLogger(EntityBuilder.class.getName()).log(SEVERE, null, ex);
         }
         return geometry;

@@ -33,6 +33,8 @@ import static org.hibernate.criterion.Restrictions.eq;
 import static org.hibernate.criterion.Restrictions.in;
 import org.n52.io.request.IoParameters;
 import org.n52.series.db.dao.DbQuery;
+import static org.n52.series.db.dao.QueryUtils.parseToId;
+import static org.n52.series.db.dao.QueryUtils.parseToIds;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
 
