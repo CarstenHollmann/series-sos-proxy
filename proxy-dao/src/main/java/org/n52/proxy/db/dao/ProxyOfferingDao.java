@@ -93,18 +93,24 @@ public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingE
     }
 
     private void updateOfferingTimestamps(OfferingEntity oldOffering, OfferingEntity newOffering) {
-            if (oldOffering.getPhenomenonTimeStart() == null ||
-                     (oldOffering.getPhenomenonTimeStart() != null && oldOffering.getPhenomenonTimeStart().after(
-                             newOffering.getPhenomenonTimeStart()))) {
-                oldOffering.setPhenomenonTimeStart(newOffering.getPhenomenonTimeStart());
-            }
-            if (oldOffering.getPhenomenonTimeEnd() == null ||
-                    (oldOffering.getPhenomenonTimeEnd() != null && oldOffering.getPhenomenonTimeEnd().before(
-                            newOffering.getPhenomenonTimeEnd()))) {
-                oldOffering.setPhenomenonTimeEnd(newOffering.getPhenomenonTimeEnd());
-            }
-            session.saveOrUpdate(oldOffering);
-            session.flush();
+        if (oldOffering.getPhenomenonTimeStart() == null || (oldOffering.getPhenomenonTimeStart() != null
+                && oldOffering.getPhenomenonTimeStart().after(newOffering.getPhenomenonTimeStart()))) {
+            oldOffering.setPhenomenonTimeStart(newOffering.getPhenomenonTimeStart());
+        }
+        if (oldOffering.getPhenomenonTimeEnd() == null || (oldOffering.getPhenomenonTimeEnd() != null
+                && oldOffering.getPhenomenonTimeEnd().before(newOffering.getPhenomenonTimeEnd()))) {
+            oldOffering.setPhenomenonTimeEnd(newOffering.getPhenomenonTimeEnd());
+        }
+        if (oldOffering.getResultTimeStart() == null || (oldOffering.getResultTimeStart() != null
+                && oldOffering.getResultTimeStart().after(newOffering.getResultTimeStart()))) {
+            oldOffering.setResultTimeStart(newOffering.getResultTimeStart());
+        }
+        if (oldOffering.getResultTimeEnd() == null || (oldOffering.getResultTimeEnd() != null
+                && oldOffering.getResultTimeEnd().before(newOffering.getResultTimeEnd()))) {
+            oldOffering.setResultTimeEnd(newOffering.getResultTimeEnd());
+        }
+        session.saveOrUpdate(oldOffering);
+        session.flush();
     }
 
     @SuppressWarnings("unchecked")
