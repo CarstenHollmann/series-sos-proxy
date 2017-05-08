@@ -34,9 +34,11 @@ import static java.util.stream.Collectors.toSet;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import static org.hibernate.criterion.Restrictions.eq;
+
+import org.n52.proxy.connector.constellations.QuantityDatasetConstellation;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.DatasetEntity;
-import org.n52.series.db.beans.MeasurementDatasetEntity;
+import org.n52.series.db.beans.QuantityDatasetEntity;
 import org.n52.series.db.beans.ServiceEntity;
 import org.n52.series.db.beans.UnitEntity;
 import org.n52.series.db.dao.DatasetDao;
@@ -47,7 +49,7 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
 
     private static final Logger LOGGER = getLogger(ProxyDatasetDao.class);
 
-    private static final String COLUMN_DATASETTYPE = "datasetType";
+    private static final String COLUMN_VALUETYPE = "valueType";
     private static final String COLUMN_CATEGORY_PKID = "category.pkid";
     private static final String COLUMN_FEATURE_PKID = "feature.pkid";
     private static final String COLUMN_PROCEDURE_PKID = "procedure.pkid";
@@ -101,12 +103,12 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
             oldDataSet.setLastValueAt(newDataSet.getLastValueAt());
         }
 
-        if (newDataSet instanceof MeasurementDatasetEntity) {
+        if (newDataSet instanceof QuantityDatasetEntity) {
             if (minChanged) {
-                oldDataSet.setFirstValue(((MeasurementDatasetEntity) newDataSet).getFirstValue());
+                oldDataSet.setFirstValue(((QuantityDatasetEntity) newDataSet).getFirstValue());
             }
             if (maxChanged) {
-                oldDataSet.setLastValue(((MeasurementDatasetEntity) newDataSet).getLastValue());
+                oldDataSet.setLastValue(((QuantityDatasetEntity) newDataSet).getLastValue());
             }
             if (oldDataSet.getUnit() == null && newDataSet.getUnit() != null) {
                 // TODO check if both unit are equal. If not throw exception?
@@ -164,7 +166,7 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
 
     private DatasetEntity getInstance(DatasetEntity dataset) {
         Criteria criteria = session.createCriteria(getEntityClass())
-                .add(eq(COLUMN_DATASETTYPE, dataset.getDatasetType()))
+                .add(eq(COLUMN_VALUETYPE, dataset.getValueType()))
                 .add(eq(COLUMN_CATEGORY_PKID, dataset.getCategory().getPkid()))
                 .add(eq(COLUMN_FEATURE_PKID, dataset.getFeature().getPkid()))
                 .add(eq(COLUMN_PROCEDURE_PKID, dataset.getProcedure().getPkid()))

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.n52</groupId>
@@ -66,7 +66,7 @@
         <shetland.version>1-SNAPSHOT</shetland.version>
         <janmayen.version>1-SNAPSHOT</janmayen.version>
         <iceland.version>2-SNAPSHOT</iceland.version>
-        <series.api.version>2.0.0-rc.2-SNAPSHOT</series.api.version>
+        <series.api.version>2.0.0-SNAPSHOT</series.api.version>
         <series.dao.version>2.0.0-SNAPSHOT</series.dao.version>
 
         <java.compiler.source>1.8</java.compiler.source>
@@ -92,6 +92,11 @@
             </dependency>
 
             <dependency>
+                <groupId>org.n52.series-api</groupId>
+                <artifactId>spi</artifactId>
+                <version>${series.api.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>io</artifactId>
                 <version>${series.api.version}</version>
@@ -102,8 +107,8 @@
                 <version>${series.api.version}</version>
             </dependency>
             <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>spi</artifactId>
+                <groupId>${project.groupId}.db</groupId>
+                <artifactId>dao</artifactId>
                 <version>${series.api.version}</version>
             </dependency>
             <dependency>
@@ -125,6 +130,11 @@
             <dependency>
                 <groupId>org.n52.svalbard</groupId>
                 <artifactId>svalbard-xmlbeans</artifactId>
+                <version>${svalbard.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.n52.svalbard</groupId>
+                <artifactId>svalbard-xmlstream</artifactId>
                 <version>${svalbard.version}</version>
             </dependency>
             <dependency>

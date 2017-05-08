@@ -28,10 +28,9 @@
  */
 package org.n52.proxy.connector.utils;
 
+import com.vividsolutions.jts.io.ParseException;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static java.util.logging.Level.SEVERE;
-import static java.util.logging.Logger.getLogger;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.CategoryEntity;
 import org.n52.series.db.beans.DatasetEntity;
@@ -41,12 +40,16 @@ import org.n52.series.db.beans.OfferingEntity;
 import org.n52.series.db.beans.PhenomenonEntity;
 import org.n52.series.db.beans.ProcedureEntity;
 import org.n52.series.db.beans.UnitEntity;
+import static org.n52.shetland.util.JTSHelper.createGeometryFromWKT;
+import static org.slf4j.LoggerFactory.getLogger;
 
 import com.vividsolutions.jts.io.ParseException;
 
 import static org.n52.shetland.util.JTSHelper.createGeometryFromWKT;
 
 public class EntityBuilder {
+
+    private static final org.slf4j.Logger LOGGER = getLogger(EntityBuilder.class);
 
     private EntityBuilder() {
     }
@@ -105,7 +108,7 @@ public class EntityBuilder {
         try {
             geometry.setGeometry(createGeometryFromWKT("POINT (" + longitude + " " + latitude + ")", srid));
         } catch (ParseException ex) {
-            getLogger(EntityBuilder.class.getName()).log(SEVERE, null, ex);
+            LOGGER.error(ex.getLocalizedMessage(), ex);
         }
         return geometry;
     }
