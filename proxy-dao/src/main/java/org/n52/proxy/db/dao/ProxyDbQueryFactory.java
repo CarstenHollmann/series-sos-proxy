@@ -34,7 +34,7 @@ import org.n52.series.db.dao.DbQueryFactory;
 
 public class ProxyDbQueryFactory implements DbQueryFactory {
 
-    private String databaseSrid;
+    private String databaseSrid = "EPSG:4326";
 
     @Override
     public DbQuery createFrom(IoParameters parameters) {

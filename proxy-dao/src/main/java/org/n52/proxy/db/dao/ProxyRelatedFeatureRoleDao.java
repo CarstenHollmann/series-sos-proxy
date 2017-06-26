@@ -28,8 +28,8 @@
  */
 package org.n52.proxy.db.dao;
 
-import java.util.ArrayList;
 import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -49,15 +49,10 @@ public class ProxyRelatedFeatureRoleDao extends AbstractDao<RelatedFeatureRoleEn
         super(session);
     }
 
-//    @Override
-//    public List<RelatedFeatureRoleEntity> find(DbQuery query) {
-//        return new ArrayList<>();
-//    }
-
     @Override
     @SuppressWarnings("unchecked")
     public List<RelatedFeatureRoleEntity> getAllInstances(DbQuery query) throws DataAccessException {
-        return getDefaultCriteria(query).list();
+        return getDefaultCriteria(ProxyDbQuery.createDefaults()).list();
     }
 
     @Override

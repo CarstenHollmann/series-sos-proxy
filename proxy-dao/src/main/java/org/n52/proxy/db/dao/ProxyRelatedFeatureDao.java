@@ -50,15 +50,10 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
         super(session);
     }
 
-//    @Override
-//    public List<RelatedFeatureEntity> find(DbQuery query) {
-//        return new ArrayList<>();
-//    }
-
     @Override
     @SuppressWarnings("unchecked")
     public List<RelatedFeatureEntity> getAllInstances(DbQuery query) throws DataAccessException {
-        return getDefaultCriteria(query).list();
+        return getDefaultCriteria(ProxyDbQuery.createDefaults()).list();
     }
 
     @Override
