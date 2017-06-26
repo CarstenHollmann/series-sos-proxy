@@ -32,7 +32,10 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import static org.hibernate.criterion.Restrictions.eq;
+
+import org.n52.io.request.IoParameters;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
+import org.n52.series.db.dao.DbQuery;
 import org.n52.series.db.dao.ServiceDao;
 import org.slf4j.Logger;
 import static org.slf4j.LoggerFactory.getLogger;
@@ -74,7 +77,7 @@ public class ProxyServiceDao extends ServiceDao implements InsertDao<ProxyServic
         return ProxyServiceEntity.class;
     }
     public List<ProxyServiceEntity> getAllServices() {
-        Criteria criteria = getDefaultCriteria();
+        Criteria criteria = getDefaultCriteria(new DbQuery(IoParameters.createDefaults()));
         return criteria.list();
     }
 

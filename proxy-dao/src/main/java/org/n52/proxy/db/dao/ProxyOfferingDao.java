@@ -39,10 +39,13 @@ import static org.hibernate.criterion.Projections.property;
 import static org.hibernate.criterion.Restrictions.eq;
 import static org.hibernate.criterion.Restrictions.in;
 import static org.hibernate.criterion.Subqueries.propertyNotIn;
+
+import org.n52.io.request.IoParameters;
 import org.n52.series.db.beans.DatasetEntity;
 import static org.n52.series.db.beans.DescribableEntity.PROPERTY_DOMAIN_ID;
 import org.n52.series.db.beans.OfferingEntity;
 import org.n52.series.db.beans.ServiceEntity;
+import org.n52.series.db.dao.DbQuery;
 import org.n52.series.db.dao.OfferingDao;
 
 public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingEntity>, ClearDao<OfferingEntity> {
@@ -115,7 +118,7 @@ public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingE
 
     @SuppressWarnings("unchecked")
     public List<OfferingEntity> getInstancesFor(Collection<String> domainIds) {
-        Criteria c = getDefaultCriteria()
+        Criteria c = getDefaultCriteria(new DbQuery(IoParameters.createDefaults()))
                 .add(in(PROPERTY_DOMAIN_ID, domainIds));
         return c.list();
     }

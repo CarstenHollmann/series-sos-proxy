@@ -34,9 +34,21 @@ import org.n52.series.db.dao.DbQueryFactory;
 
 public class ProxyDbQueryFactory implements DbQueryFactory {
 
+    private String databaseSrid;
+
     @Override
     public DbQuery createFrom(IoParameters parameters) {
         return ProxyDbQuery.createFrom(parameters);
+    }
+
+    @Override
+    public String getDatabaseSrid() {
+        return databaseSrid;
+    }
+
+    @Override
+    public void setDatabaseSrid(String databaseSrid) {
+        this.databaseSrid = databaseSrid;
     }
 
 }

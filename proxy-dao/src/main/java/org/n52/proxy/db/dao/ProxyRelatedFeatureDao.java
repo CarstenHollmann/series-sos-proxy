@@ -28,21 +28,16 @@
  */
 package org.n52.proxy.db.dao;
 
-import java.util.ArrayList;
+import static org.hibernate.criterion.Restrictions.eq;
+import static org.n52.proxy.db.beans.RelatedFeatureEntity.FEATURE;
+import static org.n52.proxy.db.beans.RelatedFeatureEntity.SERVICE;
+
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
-import static org.hibernate.criterion.Restrictions.eq;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Subqueries;
 import org.n52.proxy.db.beans.RelatedFeatureEntity;
-import static org.n52.proxy.db.beans.RelatedFeatureEntity.FEATURE;
-import static org.n52.proxy.db.beans.RelatedFeatureEntity.SERVICE;
 import org.n52.series.db.DataAccessException;
-import org.n52.series.db.beans.DatasetEntity;
-import org.n52.series.db.beans.ProcedureEntity;
 import org.n52.series.db.beans.ServiceEntity;
 import org.n52.series.db.dao.AbstractDao;
 import org.n52.series.db.dao.DbQuery;
@@ -55,15 +50,15 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
         super(session);
     }
 
-    @Override
-    public List<RelatedFeatureEntity> find(DbQuery query) {
-        return new ArrayList<>();
-    }
+//    @Override
+//    public List<RelatedFeatureEntity> find(DbQuery query) {
+//        return new ArrayList<>();
+//    }
 
     @Override
     @SuppressWarnings("unchecked")
     public List<RelatedFeatureEntity> getAllInstances(DbQuery query) throws DataAccessException {
-        return getDefaultCriteria().list();
+        return getDefaultCriteria(query).list();
     }
 
     @Override
