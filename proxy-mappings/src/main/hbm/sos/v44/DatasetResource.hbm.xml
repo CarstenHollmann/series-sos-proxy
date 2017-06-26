@@ -27,7 +27,7 @@
         <key column="seriesid" />
         <element column="resulttime" type="string" />
     </set>
-	<many-to-one class="org.n52.proxy.db.beans.ProxyServiceEntity" column="service" name="service"/>
+    <many-to-one class="org.n52.proxy.db.beans.ProxyServiceEntity" column="service" name="service"/>
         <subclass discriminator-value="quantity" name="QuantityDatasetEntity">
             <property formula="3" name="numberOfDecimals" type="int"/>
             <component class="org.n52.series.db.beans.ObservationEntity" name="firstValue">
@@ -48,20 +48,22 @@
 
 >
 
-    <subclass discriminator-value="text" name="TextDatasetEntity">
-      <list fetch="select" inverse="true" name="observations" table="observation">
-        <key column="observationid"/>
-        <index column="seriesid"/>
-        <one-to-many class="DataEntity"/>
-      </list>
-    </subclass>
+        <subclass discriminator-value="count" name="CountDatasetEntity">
+            <!--<list fetch="select" inverse="false" name="observations" table="observation">
+                <key column="observationid"/>
+                <index column="seriesid"/>
+                <one-to-many class="org.n52.series.db.beans.DataEntity"/>
+            </list>-->
+        </subclass>
 
-    <subclass discriminator-value="count" name="CountDatasetEntity">
-      <list fetch="select" inverse="true" name="observations" table="observation">
-        <key column="observationid"/>
-        <index column="seriesid"/>
-        <one-to-many class="DataEntity"/>
-      </list>
-    </subclass>
-  </class>
+        <subclass discriminator-value="quantity-profile" name="ProfileDatasetEntity">
+            <property name="verticalParameterName" formula="'depth'" type="string" />
+            <many-to-one class="UnitEntity" column="unitid" insert="false" name="unit" update="false" />
+<!--            <list fetch="select" inverse="true" name="observations" table="observation">
+                <key column="observationid" />
+                <index column="seriesid" />
+                <one-to-many class="DataEntity" />
+            </list>-->
+        </subclass>
+    </class>
 </hibernate-mapping>
