@@ -38,6 +38,7 @@ import static org.n52.series.db.beans.DescribableEntity.PROPERTY_DOMAIN_ID;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -45,8 +46,9 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.OfferingEntity;
 import org.n52.series.db.beans.ServiceEntity;
-import org.n52.series.db.dao.DbQuery;
 import org.n52.series.db.dao.OfferingDao;
+
+import com.google.common.collect.Sets;
 
 public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingEntity>, ClearDao<OfferingEntity> {
 
@@ -58,6 +60,12 @@ public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingE
     public OfferingEntity getOrInsertInstance(OfferingEntity offering) {
         OfferingEntity instance = getInstance(offering);
         if (instance == null) {
+            if (offering.hasParents()) {
+                offering.setParents(insert(offering.getParents()));
+            }
+            if (offering.hasChildren()) {
+                offering.setChildren(insert(offering.getChildren()));
+            }
             session.save(offering);
             session.flush();
             session.refresh(offering);
@@ -82,6 +90,14 @@ public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingE
         });
     }
 
+    private Set<OfferingEntity> insert(Set<OfferingEntity> set) {
+        Set<OfferingEntity> inserted = Sets.newHashSet();
+        for (OfferingEntity offeringEntity : set) {
+            inserted.add(getOrInsertInstance(offeringEntity));
+        }
+        return inserted;
+    }
+
     private OfferingEntity getInstance(OfferingEntity offering) {
         Criteria criteria = session.createCriteria(getEntityClass())
                 .add(eq(PROPERTY_DOMAIN_ID, offering.getDomainId()))
@@ -97,18 +113,22 @@ public class ProxyOfferingDao extends OfferingDao implements InsertDao<OfferingE
 
     private void updateOfferingTimestamps(OfferingEntity oldOffering, OfferingEntity newOffering) {
         if (oldOffering.getPhenomenonTimeStart() == null || (oldOffering.getPhenomenonTimeStart() != null
+                && newOffering.getPhenomenonTimeStart() != null
                 && oldOffering.getPhenomenonTimeStart().after(newOffering.getPhenomenonTimeStart()))) {
             oldOffering.setPhenomenonTimeStart(newOffering.getPhenomenonTimeStart());
         }
         if (oldOffering.getPhenomenonTimeEnd() == null || (oldOffering.getPhenomenonTimeEnd() != null
+                && newOffering.getPhenomenonTimeEnd() != null
                 && oldOffering.getPhenomenonTimeEnd().before(newOffering.getPhenomenonTimeEnd()))) {
             oldOffering.setPhenomenonTimeEnd(newOffering.getPhenomenonTimeEnd());
         }
         if (oldOffering.getResultTimeStart() == null || (oldOffering.getResultTimeStart() != null
+                && newOffering.getResultTimeStart() != null
                 && oldOffering.getResultTimeStart().after(newOffering.getResultTimeStart()))) {
             oldOffering.setResultTimeStart(newOffering.getResultTimeStart());
         }
         if (oldOffering.getResultTimeEnd() == null || (oldOffering.getResultTimeEnd() != null
+                && newOffering.getResultTimeEnd() != null
                 && oldOffering.getResultTimeEnd().before(newOffering.getResultTimeEnd()))) {
             oldOffering.setResultTimeEnd(newOffering.getResultTimeEnd());
         }

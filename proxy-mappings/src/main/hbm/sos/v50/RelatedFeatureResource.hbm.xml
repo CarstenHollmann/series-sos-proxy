@@ -4,8 +4,8 @@
 <hibernate-mapping>
     <class name="org.n52.proxy.db.beans.RelatedFeatureEntity" table="relatedFeature">
     	<comment>Table to store related feature information used in the OGC SOS 2.0 Capabilities (See also OGC SWES 2.0). Mapping file: mapping/transactionl/RelatedFeature.hbm.xml</comment>
-        <id name="relatedFeatureId" type="long">
-            <column name="relatedFeatureId">
+        <id name="pkid" type="long">
+            <column name="pkid">
             	<comment>Table primary key, used for relations</comment>
             </column>
             <generator class="native">

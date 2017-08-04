@@ -28,19 +28,24 @@
  */
 package org.n52.proxy.db.dao;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
 import static org.hibernate.criterion.DetachedCriteria.forClass;
 import static org.hibernate.criterion.Projections.distinct;
 import static org.hibernate.criterion.Projections.property;
 import static org.hibernate.criterion.Restrictions.eq;
 import static org.hibernate.criterion.Subqueries.propertyNotIn;
-import org.n52.series.db.beans.DatasetEntity;
 import static org.n52.series.db.beans.DescribableEntity.PROPERTY_DOMAIN_ID;
+
+import java.util.Set;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.ProcedureEntity;
 import org.n52.series.db.beans.ServiceEntity;
 import org.n52.series.db.dao.ProcedureDao;
+
+import com.google.common.collect.Sets;
 
 public class ProxyProcedureDao extends ProcedureDao implements InsertDao<ProcedureEntity>, ClearDao<ProcedureEntity> {
 
@@ -52,6 +57,12 @@ public class ProxyProcedureDao extends ProcedureDao implements InsertDao<Procedu
     public ProcedureEntity getOrInsertInstance(ProcedureEntity procedure) {
         ProcedureEntity instance = getInstance(procedure);
         if (instance == null) {
+            if (procedure.hasParents()) {
+                procedure.setParents(insert(procedure.getParents()));
+            }
+            if (procedure.hasChildren()) {
+                procedure.setChildren(insert(procedure.getChildren()));
+            }
             session.save(procedure);
             session.flush();
             session.refresh(procedure);
@@ -68,6 +79,14 @@ public class ProxyProcedureDao extends ProcedureDao implements InsertDao<Procedu
         criteria.list().forEach(entry -> {
             session.delete(entry);
         });
+    }
+
+    private Set<ProcedureEntity> insert(Set<ProcedureEntity> set) {
+        Set<ProcedureEntity> inserted = Sets.newHashSet();
+        for (ProcedureEntity procedureEntity : set) {
+            inserted.add(getOrInsertInstance(procedureEntity));
+        }
+        return inserted;
     }
 
     private ProcedureEntity getInstance(ProcedureEntity procedure) {

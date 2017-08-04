@@ -39,7 +39,7 @@ public class RelatedFeatureEntity {
     public static final String FEATURE = "feature";
     public static final String SERVICE = "service";
 
-    private long relatedFeatureId;
+    private long pkid;
     private FeatureEntity feature;
     private ServiceEntity service;
     private Set<RelatedFeatureRoleEntity> relatedFeatureRoles = new HashSet<>(0);
@@ -48,12 +48,12 @@ public class RelatedFeatureEntity {
     public RelatedFeatureEntity() {
     }
 
-    public long getRelatedFeatureId() {
-        return this.relatedFeatureId;
+    public long getPkid() {
+        return this.pkid;
     }
 
-    public void setRelatedFeatureId(long relatedFeatureId) {
-        this.relatedFeatureId = relatedFeatureId;
+    public void setPkid(long relatedFeatureId) {
+        this.pkid = relatedFeatureId;
     }
 
     public FeatureEntity getFeature() {

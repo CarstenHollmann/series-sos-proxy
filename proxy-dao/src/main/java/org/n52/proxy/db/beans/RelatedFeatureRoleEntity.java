@@ -30,18 +30,18 @@ package org.n52.proxy.db.beans;
 
 public class RelatedFeatureRoleEntity {
 
-    private long relatedFeatureRoleId;
+    private long pkid;
     private String relatedFeatureRole;
 
     public RelatedFeatureRoleEntity() {
     }
 
-    public long getRelatedFeatureRoleId() {
-        return this.relatedFeatureRoleId;
+    public long getPkid() {
+        return this.pkid;
     }
 
-    public void setRelatedFeatureRoleId(long relatedFeatureRoleId) {
-        this.relatedFeatureRoleId = relatedFeatureRoleId;
+    public void setPkid(long relatedFeatureRoleId) {
+        this.pkid = relatedFeatureRoleId;
     }
 
     public String getRelatedFeatureRole() {

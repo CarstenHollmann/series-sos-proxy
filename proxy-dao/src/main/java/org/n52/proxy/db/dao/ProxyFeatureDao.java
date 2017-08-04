@@ -38,9 +38,14 @@ import static org.hibernate.criterion.Restrictions.eq;
 import static org.hibernate.criterion.Subqueries.propertyNotIn;
 import org.n52.series.db.beans.DatasetEntity;
 import static org.n52.series.db.beans.DescribableEntity.PROPERTY_DOMAIN_ID;
+
+import java.util.Set;
+
 import org.n52.series.db.beans.FeatureEntity;
 import org.n52.series.db.beans.ServiceEntity;
 import org.n52.series.db.dao.FeatureDao;
+
+import com.google.common.collect.Sets;
 
 public class ProxyFeatureDao extends FeatureDao implements InsertDao<FeatureEntity>, ClearDao<FeatureEntity> {
 
@@ -52,12 +57,26 @@ public class ProxyFeatureDao extends FeatureDao implements InsertDao<FeatureEnti
     public FeatureEntity getOrInsertInstance(FeatureEntity feature) {
         FeatureEntity instance = getInstance(feature);
         if (instance == null) {
+            if (feature.hasParents()) {
+                feature.setParents(insert(feature.getParents()));
+            }
+            if (feature.hasChildren()) {
+                feature.setChildren(insert(feature.getChildren()));
+            }
             session.save(feature);
             session.flush();
             session.refresh(feature);
             instance = feature;
         }
         return instance;
+    }
+
+    private Set<FeatureEntity> insert(Set<FeatureEntity> set) {
+        Set<FeatureEntity> inserted = Sets.newHashSet();
+        for (FeatureEntity featureEntity : set) {
+            inserted.add(getOrInsertInstance(featureEntity));
+        }
+        return inserted;
     }
 
     @Override
