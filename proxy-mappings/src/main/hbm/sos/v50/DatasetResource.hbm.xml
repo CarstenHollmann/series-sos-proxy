@@ -53,7 +53,6 @@
         <many-to-one class="UnitEntity" column="unitid" name="unit" />
         <bag fetch="select" inverse="true" name="observations" table="observation">
             <key column="observationid" />
-            <index column="seriesid" />
             <one-to-many class="DataEntity" />
         </bag>
     </subclass>
@@ -61,7 +60,6 @@
     <subclass discriminator-value="text" name="TextDatasetEntity">
         <bag fetch="select" inverse="true" name="observations" table="observation">
             <key column="observationid" />
-            <index column="seriesid" />
             <one-to-many class="DataEntity" />
         </bag>
     </subclass>
@@ -69,7 +67,6 @@
     <subclass discriminator-value="count" name="CountDatasetEntity">
         <bag fetch="select" inverse="true" name="observations" table="observation">
             <key column="observationid" />
-            <index column="seriesid" />
             <one-to-many class="DataEntity" />
         </bag>
     </subclass>
@@ -79,7 +76,6 @@
         <many-to-one class="UnitEntity" column="unitid" name="unit" />
         <bag fetch="select" inverse="true" name="observations" table="observation">
             <key column="observationid" />
-            <index column="seriesid" />
             <one-to-many class="DataEntity" />
         </bag>
     </subclass>
