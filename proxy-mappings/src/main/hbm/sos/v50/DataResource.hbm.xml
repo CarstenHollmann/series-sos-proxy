@@ -6,11 +6,15 @@
             <column name="observationid"/>
             <generator class="assigned"/>
         </id>
-        <property column="seriesid" name="seriesPkid" type="long"/>
-        <property column="phenomenonTimeStart" name="timestamp" type="timestamp"/>
+         <property column="seriesid" name="seriesPkid" type="long"/>
+        <property column="phenomenontimestart" name="timestart" type="timestamp"/>
+        <property column="phenomenontimeend" name="timeend" type="timestamp"/>
         <property column="deleted" name="deleted" type="org.hibernate.type.TrueFalseType"/>
-        <property column="validTimeStart" name="validTimeStart" not-null="false" type="timestamp"/>
-        <property column="validTimeEnd" name="validTimeEnd" not-null="false" type="timestamp"/>
+        <property column="validtimestart" name="validTimeStart" not-null="false" type="timestamp"/>
+        <property column="validtimeend" name="validTimeEnd" not-null="false" type="timestamp"/>
+        <property column="resulttime" name="resultTime" not-null="false" type="timestamp"/>
+        <property column="parent" name="parent" type="org.hibernate.type.TrueFalseType" />
+        <property column="child" name="child" type="org.hibernate.type.TrueFalseType" />
         <component class="GeometryEntity" name="geometryEntity">
             <!--
            <property column="lat" name="lat" type="double" />
@@ -18,26 +22,35 @@
             -->
             <property column="samplingGeometry" name="geometry" type="org.hibernate.spatial.GeometryType"/>
         </component>
-        <!-- Or add only to specific joined-subclasses -->
-        <!--
-        <set inverse="true" name="parameters" table="parameters">
+        <set inverse="true" name="parameters" table="parameter">
             <key column="observationid" not-null="true"/>
             <one-to-many class="org.n52.series.db.beans.parameter.ObservationParameter"/>
         </set>
- 		-->
-        <joined-subclass extends="DataEntity" name="QuantityDataEntity" table="numericValue">
+
+        <joined-subclass extends="DataEntity" name="QuantityDataEntity" table="numericvalue">
             <key column="observationid"/>
             <property column="value" name="value" type="double"/>
+            <property name="valueType" formula="'quantity'" />
         </joined-subclass>
 
-        <joined-subclass extends="DataEntity" name="TextDataEntity" table="textValue">
+        <joined-subclass extends="DataEntity" name="TextDataEntity" table="textvalue">
             <key column="observationid"/>
             <property column="value" name="value" type="string"/>
+            <property name="valueType" formula="'text'" />
         </joined-subclass>
 
-        <joined-subclass extends="DataEntity" name="CountDataEntity" table="countValue">
+        <joined-subclass extends="DataEntity" name="CountDataEntity" table="countvalue">
             <key column="observationid"/>
             <property column="value" name="value" type="integer"/>
+            <property name="valueType" formula="'count'" />
+        </joined-subclass>
+
+        <joined-subclass extends="DataEntity" name="ProfileDataEntity" table="profilevalue">
+            <key column="observationid"/>
+            <set name="value" table="profileobservation">
+                <key column="observationid" />
+                <many-to-many class="DataEntity" column="childObservationId" />
+            </set>
         </joined-subclass>
     </class>
 </hibernate-mapping>

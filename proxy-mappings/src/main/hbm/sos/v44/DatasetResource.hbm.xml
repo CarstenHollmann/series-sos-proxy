@@ -3,67 +3,80 @@
 <hibernate-mapping package="org.n52.series.db.beans">
     <class name="DatasetEntity" table="series">
         <id name="pkid" type="long">
-            <column name="seriesid"/>
-            <generator class="native">
-                <param name="sequence">seriesId_seq</param>
-            </generator>
+            <column name="seriesid" />
+            <generator class="assigned" />
         </id>
-        <discriminator column="seriesType" force="true" type="string"/>
-        <many-to-one class="CategoryEntity" column="categoryid" name="category" />
-        <many-to-one class="ProcedureEntity" column="procedureid" name="procedure"/>
-        <many-to-one class="OfferingEntity" column="offeringid" name="offering"/>
-        <many-to-one class="PhenomenonEntity" column="observablepropertyid" name="phenomenon"/>
-        <many-to-one class="FeatureEntity" column="featureofinterestid" name="feature"/>
-        <many-to-one class="PlatformEntity" column="procedureid" insert="false" name="platform" update="false"/>
-        <property column="published" name="published" type="org.hibernate.type.TrueFalseType"/>
-        <property column="deleted" name="deleted" type="org.hibernate.type.TrueFalseType"/>
-        <property column="seriesType" name="valueType" type="string" insert="false" update="false"/>
+        <discriminator column="seriesType" force="true" type="string" />
+        <many-to-one class="CategoryEntity" column="observablepropertyid" insert="false" name="category"
+            update="false" />
+        <many-to-one class="ProcedureEntity" column="procedureid" insert="false" name="procedure" update="false" />
+        <many-to-one class="OfferingEntity" column="offeringid" insert="false" name="offering" update="false" />
+        <many-to-one class="PhenomenonEntity" column="observablepropertyid" insert="false" name="phenomenon"
+            update="false" />
+        <many-to-one class="FeatureEntity" column="featureofinterestid" insert="false" name="feature"
+            update="false" />
+        <many-to-one class="PlatformEntity" column="procedureid" insert="false" name="platform" update="false" />
+        <property column="published" insert="false" name="published" type="org.hibernate.type.TrueFalseType"
+            update="false" />
+        <property column="deleted" insert="false" name="deleted" type="org.hibernate.type.TrueFalseType"
+            update="false" />
+        <property column="seriesType" insert="false" name="valueType" type="string" update="false" />
 
-    <property column="identifier" insert="false" name="domainId" type="string" update="false"/>
-    <property column="firsttimestamp" name="firstValueAt" type="timestamp"/>
-    <property column="lasttimestamp" name="lastValueAt" type="timestamp"/>
+        <property column="identifier" insert="false" name="domainId" type="string" update="false" />
+        <property column="firsttimestamp" name="firstValueAt" type="timestamp" />
+        <property column="lasttimestamp" name="lastValueAt" type="timestamp" />
 
-    <set inverse="true" name="resultTimes" table="observation">
-        <key column="seriesid" />
-        <element column="resulttime" type="string" />
-    </set>
-    <many-to-one class="org.n52.proxy.db.beans.ProxyServiceEntity" column="service" name="service"/>
+        <set inverse="true" name="resultTimes" table="observation">
+            <key column="seriesid" />
+            <element column="resulttime" type="timestamp" />
+        </set>
+
         <subclass discriminator-value="quantity" name="QuantityDatasetEntity">
-            <property formula="3" name="numberOfDecimals" type="int"/>
-            <component class="org.n52.series.db.beans.ObservationEntity" name="firstValue">
-                <property column="firsttimestamp" name="timestamp" type="timestamp" insert="false" update="false"/>
-                <property column="firstnumericvalue" name="value" type="double"/>
+            <property formula="3" name="numberOfDecimals" type="int" />
+            <!-- first value for backwards compatibility -->
+            <component class="ObservationEntity" name="firstValue">
+                <property column="firsttimestamp" name="timestart" type="timestamp" insert="false" update="false" />
+                <property column="firsttimestamp" name="timeend" type="timestamp" insert="false" update="false" />
+                <property column="firstnumericvalue" name="value" type="double" />
             </component>
-            <component class="org.n52.series.db.beans.ObservationEntity" name="lastValue">
-                <property column="lasttimestamp" name="timestamp" type="timestamp" insert="false" update="false"/>
-                <property column="lastnumericvalue" name="value" type="double"/>
+            <!-- last value for backwards compatibility -->
+            <component class="ObservationEntity" name="lastValue">
+                <property column="lasttimestamp" name="timestart" type="timestamp" insert="false" update="false" />
+                <property column="lasttimestamp" name="timeend" type="timestamp" insert="false" update="false" />
+                <property column="lastnumericvalue" name="value" type="double" />
             </component>
-            <many-to-one class="org.n52.series.db.beans.UnitEntity" column="unitid" name="unit"/>
-            <!--<list fetch="select" inverse="true" name="observations" table="observation">
-                <key column="observationid"/>
-                <index column="seriesid"/>
-                <one-to-many class="org.n52.series.db.beans.DataEntity"/>
-            </list>-->
+            <many-to-one class="UnitEntity" column="unitid" insert="false" name="unit" update="false" />
+            <list fetch="select" inverse="true" name="observations" table="observation">
+                <key column="observationid" />
+                <index column="seriesid" />
+                <one-to-many class="DataEntity" />
+            </list>
         </subclass>
 
->
+        <subclass discriminator-value="text" name="TextDatasetEntity">
+            <list fetch="select" inverse="true" name="observations" table="observation">
+                <key column="observationid" />
+                <index column="seriesid" />
+                <one-to-many class="DataEntity" />
+            </list>
+        </subclass>
 
         <subclass discriminator-value="count" name="CountDatasetEntity">
-            <!--<list fetch="select" inverse="false" name="observations" table="observation">
-                <key column="observationid"/>
-                <index column="seriesid"/>
-                <one-to-many class="org.n52.series.db.beans.DataEntity"/>
-            </list>-->
+            <list fetch="select" inverse="true" name="observations" table="observation">
+                <key column="observationid" />
+                <index column="seriesid" />
+                <one-to-many class="DataEntity" />
+            </list>
         </subclass>
 
         <subclass discriminator-value="quantity-profile" name="ProfileDatasetEntity">
             <property name="verticalParameterName" formula="'depth'" type="string" />
-            <many-to-one class="UnitEntity" column="unitid" name="unit"/>
-<!--            <list fetch="select" inverse="true" name="observations" table="observation">
+            <many-to-one class="UnitEntity" column="unitid" insert="false" name="unit" update="false" />
+            <list fetch="select" inverse="true" name="observations" table="observation">
                 <key column="observationid" />
                 <index column="seriesid" />
                 <one-to-many class="DataEntity" />
-            </list>-->
+            </list>
         </subclass>
     </class>
 </hibernate-mapping>
