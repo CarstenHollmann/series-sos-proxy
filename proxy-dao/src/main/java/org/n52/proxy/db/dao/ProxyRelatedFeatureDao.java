@@ -95,7 +95,7 @@ public class ProxyRelatedFeatureDao extends AbstractDao<RelatedFeatureEntity> im
     }
 
     @Override
-    protected Criteria getDefaultCriteria(DbQuery query) {
+    public Criteria getDefaultCriteria(DbQuery query) {
         return session.createCriteria(getEntityClass());
     }
 }
