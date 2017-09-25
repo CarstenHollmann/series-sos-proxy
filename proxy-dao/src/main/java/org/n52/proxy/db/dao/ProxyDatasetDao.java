@@ -78,9 +78,6 @@ public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> impl
             session.save(dataset);
             LOGGER.debug("Save dataset: " + dataset);
         } else {
-            // TODO find good solution to recreate the dataset entities
-            instance.setDomainId(null);
-//            instance.setDeleted(Boolean.FALSE);
             instance.setPublished(Boolean.TRUE);
             updateSeriesWithFirstLatestValues(instance, dataset);
             session.update(instance);
