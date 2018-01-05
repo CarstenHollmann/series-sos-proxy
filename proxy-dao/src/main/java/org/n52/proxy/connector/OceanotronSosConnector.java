@@ -28,9 +28,9 @@
  */
 package org.n52.proxy.connector;
 
-import com.vividsolutions.jts.geom.Envelope;
-import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.geom.Point;
+import static org.n52.shetland.ogc.sos.SosConstants.SOS;
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -38,11 +38,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+
 import org.n52.proxy.config.DataSourceConfiguration;
 import org.n52.proxy.connector.constellations.ProfileDatasetConstellation;
 import org.n52.proxy.connector.utils.EntityBuilder;
 import org.n52.proxy.connector.utils.ServiceConstellation;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
+import org.n52.proxy.decode.JTSConverter;
 import org.n52.series.db.beans.DataEntity;
 import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.FeatureEntity;
@@ -66,6 +68,7 @@ import org.n52.shetland.ogc.om.values.SweDataArrayValue;
 import org.n52.shetland.ogc.om.values.Value;
 import org.n52.shetland.ogc.ows.OwsCapabilities;
 import org.n52.shetland.ogc.ows.OwsServiceProvider;
+import org.n52.shetland.ogc.ows.exception.CodedException;
 import org.n52.shetland.ogc.ows.exception.OwsExceptionReport;
 import org.n52.shetland.ogc.ows.service.GetCapabilitiesResponse;
 import org.n52.shetland.ogc.sensorML.AbstractProcess;
@@ -75,7 +78,6 @@ import org.n52.shetland.ogc.sensorML.System;
 import org.n52.shetland.ogc.sensorML.elements.SmlComponent;
 import org.n52.shetland.ogc.sos.Sos2Constants;
 import org.n52.shetland.ogc.sos.SosCapabilities;
-import static org.n52.shetland.ogc.sos.SosConstants.SOS;
 import org.n52.shetland.ogc.sos.SosObservationOffering;
 import org.n52.shetland.ogc.sos.request.DescribeSensorRequest;
 import org.n52.shetland.ogc.sos.request.GetFeatureOfInterestRequest;
@@ -89,7 +91,10 @@ import org.n52.shetland.ogc.swe.simpleType.SweQuantity;
 import org.n52.shetland.ogc.swes.SwesConstants;
 import org.n52.shetland.util.ReferencedEnvelope;
 import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
+
+import org.locationtech.jts.geom.Envelope;
+import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.Point;
 
 public class OceanotronSosConnector extends SOS2Connector {
 
@@ -336,7 +341,12 @@ public class OceanotronSosConnector extends SOS2Connector {
 
     private SpatialFilter createSpatialFilter(FeatureEntity feature) {
         SpatialFilter spatialFilter = new SpatialFilter();
-        Geometry geometry = feature.getGeometryEntity().getGeometry();
+        Geometry geometry = null;
+        try {
+            geometry = JTSConverter.convert(feature.getGeometryEntity().getGeometry());
+        } catch (CodedException e) {
+            LOGGER.warn("Error while converting geometry", e);
+        }
         if (geometry != null && geometry instanceof Point) {
             Point point = (Point) geometry;
             double x = point.getCoordinate().x;

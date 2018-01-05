@@ -28,13 +28,7 @@
  */
 package org.n52.proxy.connector;
 
-import java.util.ArrayList;
 import static java.util.Arrays.asList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
-import org.n52.proxy.config.DataSourceConfiguration;
-import org.n52.proxy.connector.constellations.QuantityDatasetConstellation;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addCategory;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addFeature;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addOffering;
@@ -48,6 +42,18 @@ import static org.n52.proxy.connector.utils.DataEntityBuilder.createCountDataEnt
 import static org.n52.proxy.connector.utils.DataEntityBuilder.createQuantityDataEntity;
 import static org.n52.proxy.connector.utils.DataEntityBuilder.createTextDataEntity;
 import static org.n52.proxy.connector.utils.EntityBuilder.createUnit;
+import static org.n52.shetland.ogc.sos.Sos2Constants.NS_SOS_20;
+import static org.n52.shetland.ogc.sos.Sos2Constants.SERVICEVERSION;
+import static org.n52.shetland.ogc.sos.SosConstants.SOS;
+import static org.slf4j.LoggerFactory.getLogger;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+import org.n52.proxy.config.DataSourceConfiguration;
+import org.n52.proxy.connector.constellations.QuantityDatasetConstellation;
 import org.n52.proxy.connector.utils.ServiceConstellation;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.CountDatasetEntity;
@@ -68,10 +74,7 @@ import org.n52.shetland.ogc.ows.OwsOperation;
 import org.n52.shetland.ogc.ows.exception.OwsExceptionReport;
 import org.n52.shetland.ogc.ows.service.GetCapabilitiesResponse;
 import org.n52.shetland.ogc.sos.Sos2Constants;
-import static org.n52.shetland.ogc.sos.Sos2Constants.NS_SOS_20;
-import static org.n52.shetland.ogc.sos.Sos2Constants.SERVICEVERSION;
 import org.n52.shetland.ogc.sos.SosCapabilities;
-import static org.n52.shetland.ogc.sos.SosConstants.SOS;
 import org.n52.shetland.ogc.sos.SosObservationOffering;
 import org.n52.shetland.ogc.sos.gda.GetDataAvailabilityRequest;
 import org.n52.shetland.ogc.sos.gda.GetDataAvailabilityResponse;
@@ -83,7 +86,6 @@ import org.n52.shetland.ogc.sos.response.GetFeatureOfInterestResponse;
 import org.n52.shetland.ogc.sos.response.GetObservationResponse;
 import org.n52.shetland.ogc.swes.SwesConstants;
 import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
 import org.springframework.beans.factory.annotation.Configurable;
 
 @Configurable

@@ -28,10 +28,14 @@
  */
 package org.n52.proxy.harvest;
 
+import static java.util.stream.Collectors.toSet;
+import static org.quartz.TriggerBuilder.newTrigger;
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import static java.util.stream.Collectors.toSet;
+
 import org.n52.io.task.ScheduledJob;
 import org.n52.proxy.config.ConfigurationReader;
 import org.n52.proxy.config.DataSourceConfiguration;
@@ -40,9 +44,7 @@ import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
-import static org.quartz.TriggerBuilder.newTrigger;
 import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class DataSourceHarvesterScheduler {

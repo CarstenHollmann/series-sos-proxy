@@ -28,9 +28,12 @@
  */
 package org.n52.proxy.db.da;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -53,10 +56,8 @@ import org.n52.series.db.beans.FeatureEntity;
 import org.n52.series.db.beans.OfferingEntity;
 import org.n52.series.db.beans.PhenomenonEntity;
 import org.n52.series.db.beans.ProcedureEntity;
-import org.n52.series.db.beans.UnitEntity;
 import org.n52.series.db.da.SessionAwareRepository;
 import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
 
 public class InsertRepository extends SessionAwareRepository {
 

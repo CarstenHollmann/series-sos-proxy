@@ -28,17 +28,19 @@
  */
 package org.n52.proxy.connector.utils;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import org.n52.proxy.connector.constellations.DatasetConstellation;
 import static org.n52.proxy.connector.utils.EntityBuilder.createCategory;
 import static org.n52.proxy.connector.utils.EntityBuilder.createFeature;
 import static org.n52.proxy.connector.utils.EntityBuilder.createGeometry;
 import static org.n52.proxy.connector.utils.EntityBuilder.createOffering;
 import static org.n52.proxy.connector.utils.EntityBuilder.createPhenomenon;
 import static org.n52.proxy.connector.utils.EntityBuilder.createProcedure;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
+import org.n52.proxy.connector.constellations.DatasetConstellation;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.CategoryEntity;
 import org.n52.series.db.beans.FeatureEntity;

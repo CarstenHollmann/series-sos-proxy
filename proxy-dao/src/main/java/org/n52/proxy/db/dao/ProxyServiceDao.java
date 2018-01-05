@@ -35,10 +35,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-
-import org.n52.io.request.IoParameters;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
-import org.n52.series.db.dao.DbQuery;
 import org.n52.series.db.dao.ServiceDao;
 import org.slf4j.Logger;
 import org.springframework.transaction.annotation.Transactional;

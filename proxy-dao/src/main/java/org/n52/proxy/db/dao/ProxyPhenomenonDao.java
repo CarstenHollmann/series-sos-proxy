@@ -28,16 +28,17 @@
  */
 package org.n52.proxy.db.dao;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
 import static org.hibernate.criterion.DetachedCriteria.forClass;
 import static org.hibernate.criterion.Projections.distinct;
 import static org.hibernate.criterion.Projections.property;
 import static org.hibernate.criterion.Restrictions.eq;
 import static org.hibernate.criterion.Subqueries.propertyNotIn;
-import org.n52.series.db.beans.DatasetEntity;
 import static org.n52.series.db.beans.DescribableEntity.PROPERTY_DOMAIN_ID;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.PhenomenonEntity;
 import org.n52.series.db.beans.ServiceEntity;
 import org.n52.series.db.dao.PhenomenonDao;

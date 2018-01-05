@@ -37,16 +37,12 @@ import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-
-import org.n52.io.request.IoParameters;
-import org.n52.proxy.connector.constellations.QuantityDatasetConstellation;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.QuantityDatasetEntity;
 import org.n52.series.db.beans.ServiceEntity;
 import org.n52.series.db.beans.UnitEntity;
 import org.n52.series.db.dao.DatasetDao;
-import org.n52.series.db.dao.DbQuery;
 import org.slf4j.Logger;
 
 public class ProxyDatasetDao<T extends DatasetEntity> extends DatasetDao<T> implements InsertDao<T> {

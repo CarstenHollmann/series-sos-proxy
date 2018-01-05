@@ -30,6 +30,7 @@ package org.n52.proxy.connector.constellations;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.beans.CategoryEntity;
 import org.n52.series.db.beans.DatasetEntity;

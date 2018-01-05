@@ -28,8 +28,15 @@
  */
 package org.n52.proxy.web;
 
-import java.io.IOException;
 import static org.apache.http.Consts.UTF_8;
+import static org.apache.http.entity.ContentType.create;
+import static org.apache.http.params.CoreConnectionPNames.CONNECTION_TIMEOUT;
+import static org.apache.http.params.CoreConnectionPNames.SO_TIMEOUT;
+import static org.slf4j.LoggerFactory.getLogger;
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+
+import java.io.IOException;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -37,15 +44,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.entity.ContentType;
-import static org.apache.http.entity.ContentType.create;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import static org.apache.http.params.CoreConnectionPNames.CONNECTION_TIMEOUT;
-import static org.apache.http.params.CoreConnectionPNames.SO_TIMEOUT;
 import org.apache.xmlbeans.XmlObject;
 import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import org.springframework.web.client.HttpClientErrorException;
 
 public class SimpleHttpClient implements HttpClient {

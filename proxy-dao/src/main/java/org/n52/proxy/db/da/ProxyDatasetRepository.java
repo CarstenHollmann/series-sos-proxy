@@ -29,14 +29,16 @@
 package org.n52.proxy.db.da;
 
 import static com.google.common.base.Strings.isNullOrEmpty;
+import static org.n52.proxy.connector.utils.EntityBuilder.createUnit;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.hibernate.Session;
 import org.n52.io.response.dataset.Data;
 import org.n52.io.response.dataset.DatasetOutput;
 import org.n52.proxy.connector.AbstractConnector;
-import static org.n52.proxy.connector.utils.EntityBuilder.createUnit;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
 import org.n52.series.db.DataAccessException;
 import org.n52.series.db.beans.DatasetEntity;

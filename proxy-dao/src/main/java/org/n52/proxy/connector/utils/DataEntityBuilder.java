@@ -1,6 +1,7 @@
 package org.n52.proxy.connector.utils;
 
 import java.util.Date;
+
 import org.n52.series.db.beans.CountDataEntity;
 import org.n52.series.db.beans.DataEntity;
 import org.n52.series.db.beans.QuantityDataEntity;

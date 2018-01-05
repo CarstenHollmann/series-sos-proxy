@@ -28,12 +28,7 @@
  */
 package org.n52.proxy.connector;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import static java.util.Optional.empty;
-import org.n52.proxy.config.DataSourceConfiguration;
-import org.n52.proxy.connector.constellations.QuantityDatasetConstellation;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addCategory;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addFeature;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addOffering;
@@ -41,6 +36,15 @@ import static org.n52.proxy.connector.utils.ConnectorHelper.addPhenomenon;
 import static org.n52.proxy.connector.utils.ConnectorHelper.addProcedure;
 import static org.n52.proxy.connector.utils.ConnectorHelper.createTimePeriodFilter;
 import static org.n52.proxy.connector.utils.EntityBuilder.createUnit;
+import static org.n52.shetland.ogc.sos.ro.RelatedOfferingConstants.RELATED_OFFERINGS;
+import static org.slf4j.LoggerFactory.getLogger;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.n52.proxy.config.DataSourceConfiguration;
+import org.n52.proxy.connector.constellations.QuantityDatasetConstellation;
 import org.n52.proxy.connector.utils.ProxyException;
 import org.n52.proxy.connector.utils.ServiceConstellation;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
@@ -58,10 +62,8 @@ import org.n52.shetland.ogc.sos.SosObservationOffering;
 import org.n52.shetland.ogc.sos.gda.GetDataAvailabilityResponse;
 import org.n52.shetland.ogc.sos.response.GetFeatureOfInterestResponse;
 import org.n52.shetland.ogc.sos.response.GetObservationResponse;
-import static org.n52.shetland.ogc.sos.ro.RelatedOfferingConstants.RELATED_OFFERINGS;
 import org.n52.shetland.ogc.sos.ro.RelatedOfferings;
 import org.slf4j.Logger;
-import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * @author Jan Schulte

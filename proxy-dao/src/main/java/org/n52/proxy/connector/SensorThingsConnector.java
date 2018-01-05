@@ -1,25 +1,24 @@
 package org.n52.proxy.connector;
 
-import com.github.filosganga.geogson.gson.GeometryAdapterFactory;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonSyntaxException;
+import static java.util.Optional.of;
+import static org.joda.time.format.DateTimeFormat.forPattern;
+import static org.n52.proxy.connector.utils.ConnectorHelper.addService;
+import static org.n52.proxy.connector.utils.EntityBuilder.createUnit;
+import static org.slf4j.LoggerFactory.getLogger;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import static java.util.Optional.of;
+
 import org.apache.http.HttpResponse;
 import org.joda.time.DateTime;
-import static org.joda.time.format.DateTimeFormat.forPattern;
 import org.joda.time.format.DateTimeFormatter;
 import org.n52.proxy.config.DataSourceConfiguration;
 import org.n52.proxy.connector.constellations.QuantityDatasetConstellation;
 import org.n52.proxy.connector.utils.ConnectorHelper;
-import static org.n52.proxy.connector.utils.ConnectorHelper.addService;
-import static org.n52.proxy.connector.utils.EntityBuilder.createUnit;
 import org.n52.proxy.connector.utils.ServiceConstellation;
 import org.n52.sensorthings.Datastream;
 import org.n52.sensorthings.Datastreams;
@@ -35,7 +34,11 @@ import org.n52.series.db.beans.DatasetEntity;
 import org.n52.series.db.beans.QuantityDataEntity;
 import org.n52.series.db.beans.UnitEntity;
 import org.n52.series.db.dao.DbQuery;
-import static org.slf4j.LoggerFactory.getLogger;
+
+import com.github.filosganga.geogson.gson.GeometryAdapterFactory;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 
 public class SensorThingsConnector extends AbstractConnector {
 
