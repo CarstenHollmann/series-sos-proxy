@@ -8,6 +8,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -192,7 +193,7 @@ public class SensorThingsConnector extends AbstractConnector {
         QuantityDataEntity dataEntity = new QuantityDataEntity();
         dataEntity.setTimestart(observation.phenomenonTime);
         dataEntity.setTimeend(observation.phenomenonTime);
-        dataEntity.setValue(observation.result);
+        dataEntity.setValue(new BigDecimal(observation.result));
         return dataEntity;
     }
 

@@ -5,6 +5,7 @@
  */
 package org.n52.proxy.db.da;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 import org.hibernate.Session;
@@ -25,7 +26,7 @@ import org.n52.series.db.dao.DbQuery;
  */
 public class ProxyQuantityProfileDataRepository
         extends QuantityProfileDataRepository
-        implements ProxyDataRepository<QuantityProfileDatasetEntity, ProfileValue<Double>> {
+        implements ProxyDataRepository<QuantityProfileDatasetEntity, ProfileValue<BigDecimal>> {
 
     private Map<String, AbstractConnector> connectorMap;
 
@@ -54,14 +55,14 @@ public class ProxyQuantityProfileDataRepository
     }
 
     @Override
-    protected Data<ProfileValue<Double>> assembleDataWithReferenceValues(QuantityProfileDatasetEntity profileDatasetEntity, DbQuery dbQuery,
+    protected Data<ProfileValue<BigDecimal>> assembleDataWithReferenceValues(QuantityProfileDatasetEntity profileDatasetEntity, DbQuery dbQuery,
             Session session) throws DataAccessException {
         return assembleData(profileDatasetEntity, dbQuery, session);
     }
 
     @Override
-    protected Data<ProfileValue<Double>> assembleData(QuantityProfileDatasetEntity profileDatasetEntity, DbQuery query, Session session) throws DataAccessException {
-        Data<ProfileValue<Double>> result = new Data<>();
+    protected Data<ProfileValue<BigDecimal>> assembleData(QuantityProfileDatasetEntity profileDatasetEntity, DbQuery query, Session session) throws DataAccessException {
+        Data<ProfileValue<BigDecimal>> result = new Data<>();
         this.getConnector(profileDatasetEntity)
                 .getObservations(profileDatasetEntity, query)
                 .stream()

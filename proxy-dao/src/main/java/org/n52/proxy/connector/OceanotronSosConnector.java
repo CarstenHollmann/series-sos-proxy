@@ -31,6 +31,7 @@ package org.n52.proxy.connector;
 import static org.n52.shetland.ogc.sos.SosConstants.SOS;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -203,7 +204,7 @@ public class OceanotronSosConnector extends SOS2Connector {
     private QuantityDataEntity createVerticalEntry(double measurement, Date timestamp, UnitEntity verticalUnit,
             double verticalValue) {
         QuantityDataEntity quantityDataEntity = new QuantityDataEntity();
-        quantityDataEntity.setValue(measurement);
+        quantityDataEntity.setValue(new BigDecimal(measurement));
         quantityDataEntity.setTimestart(timestamp);
         quantityDataEntity.setTimeend(timestamp);
         Set<Parameter<?>> parameters = new HashSet<>();

@@ -43,6 +43,7 @@ import static org.n52.shetland.ogc.sos.SosConstants.SOS;
 import static org.n52.shetland.ogc.sos.gda.GetDataAvailabilityConstants.NS_GDA_20;
 import static org.slf4j.LoggerFactory.getLogger;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -178,7 +179,7 @@ public class TrajectorySOSConnector extends AbstractSosConnector {
         QuantityDataEntity quantityDataEntity = new QuantityDataEntity();
         quantityDataEntity.setTimestart(new Date());
         quantityDataEntity.setTimeend(new Date());
-        quantityDataEntity.setValue(0.0);
+        quantityDataEntity.setValue(new BigDecimal("0.0"));
         return of(quantityDataEntity);
     }
 
@@ -188,7 +189,7 @@ public class TrajectorySOSConnector extends AbstractSosConnector {
         QuantityDataEntity quantityDataEntity = new QuantityDataEntity();
         quantityDataEntity.setTimestart(new Date());
         quantityDataEntity.setTimeend(new Date());
-        quantityDataEntity.setValue(0.0);
+        quantityDataEntity.setValue(new BigDecimal("0.0"));
         return of(quantityDataEntity);
     }
 
