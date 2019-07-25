@@ -32,6 +32,7 @@ import java.util.Map;
 
 import org.hibernate.Session;
 import org.n52.io.response.dataset.Data;
+import org.n52.io.response.dataset.text.TextData;
 import org.n52.io.response.dataset.text.TextValue;
 import org.n52.proxy.connector.AbstractConnector;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
@@ -64,8 +65,8 @@ public class ProxyTextDataRepository extends org.n52.series.db.da.TextDataReposi
     }
 
     @Override
-    protected Data<TextValue> assembleData(TextDatasetEntity seriesEntity, DbQuery query, Session session) throws DataAccessException {
-        Data<TextValue> result = new Data<>();
+    protected TextData assembleData(TextDatasetEntity seriesEntity, DbQuery query, Session session) throws DataAccessException {
+        TextData result = new TextData();
         this.getConnector(seriesEntity)
                 .getObservations(seriesEntity, query).stream()
                 .map((entry) -> createSeriesValueFor((TextDataEntity) entry, seriesEntity, query))

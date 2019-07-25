@@ -204,7 +204,7 @@ public class OceanotronSosConnector extends SOS2Connector {
     private QuantityDataEntity createVerticalEntry(double measurement, Date timestamp, UnitEntity verticalUnit,
             double verticalValue) {
         QuantityDataEntity quantityDataEntity = new QuantityDataEntity();
-        quantityDataEntity.setValue(new BigDecimal(measurement));
+        quantityDataEntity.setValue(measurement);
         quantityDataEntity.setTimestart(timestamp);
         quantityDataEntity.setTimeend(timestamp);
         Set<Parameter<?>> parameters = new HashSet<>();

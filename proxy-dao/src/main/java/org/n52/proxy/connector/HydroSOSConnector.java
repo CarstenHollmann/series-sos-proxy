@@ -105,7 +105,7 @@ public class HydroSOSConnector extends SOS2Connector {
                 entity.setTimestart(instant.getValue().toDate());
                 entity.setTimeend(instant.getValue().toDate());
                 QuantityValue value = (QuantityValue) obsValue.getValue();
-                entity.setValue(value.getValue());
+                entity.setValue(value.getValue().doubleValue());
 
                 data.add(entity);
             });

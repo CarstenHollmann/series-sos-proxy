@@ -32,6 +32,7 @@ import java.util.Map;
 
 import org.hibernate.Session;
 import org.n52.io.response.dataset.Data;
+import org.n52.io.response.dataset.quantity.QuantityData;
 import org.n52.io.response.dataset.quantity.QuantityValue;
 import org.n52.proxy.connector.AbstractConnector;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
@@ -70,15 +71,15 @@ public class ProxyQuantityDataRepository
     }
 
     @Override
-    protected Data<QuantityValue> assembleDataWithReferenceValues(QuantityDatasetEntity datasetEntity, DbQuery dbQuery,
+    protected QuantityData assembleDataWithReferenceValues(QuantityDatasetEntity datasetEntity, DbQuery dbQuery,
             Session session) throws DataAccessException {
         return assembleData(datasetEntity, dbQuery, session);
     }
 
     @Override
-    protected Data<QuantityValue> assembleData(QuantityDatasetEntity seriesEntity, DbQuery query, Session session)
+    protected QuantityData assembleData(QuantityDatasetEntity seriesEntity, DbQuery query, Session session)
             throws DataAccessException {
-        Data<QuantityValue> result = new Data<>();
+        QuantityData result = new QuantityData();
         this.getConnector(seriesEntity)
                 .getObservations(seriesEntity, query).stream()
                 .map((entry) -> createSeriesValueFor((QuantityDataEntity) entry, seriesEntity, query))

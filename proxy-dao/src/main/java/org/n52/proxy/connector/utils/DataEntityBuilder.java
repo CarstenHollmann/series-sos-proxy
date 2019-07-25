@@ -30,7 +30,7 @@ public class DataEntityBuilder {
         SingleObservationValue obsValue = (SingleObservationValue) observation.getValue();
         setPhenomenonTime(obsValue, dataEntity);
         QuantityValue value = (QuantityValue) obsValue.getValue();
-        dataEntity.setValue(value.getValue());
+        dataEntity.setValue(value.getValue().doubleValue());
         return dataEntity;
     }
 

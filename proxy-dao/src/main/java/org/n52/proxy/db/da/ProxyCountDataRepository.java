@@ -32,6 +32,7 @@ import java.util.Map;
 
 import org.hibernate.Session;
 import org.n52.io.response.dataset.Data;
+import org.n52.io.response.dataset.count.CountData;
 import org.n52.io.response.dataset.count.CountValue;
 import org.n52.proxy.connector.AbstractConnector;
 import org.n52.proxy.db.beans.ProxyServiceEntity;
@@ -64,8 +65,8 @@ public class ProxyCountDataRepository extends org.n52.series.db.da.CountDataRepo
     }
 
     @Override
-    protected Data<CountValue> assembleData(CountDatasetEntity seriesEntity, DbQuery query, Session session) throws DataAccessException {
-        Data<CountValue> result = new Data<>();
+    protected CountData assembleData(CountDatasetEntity seriesEntity, DbQuery query, Session session) throws DataAccessException {
+        CountData result = new CountData();
         this.getConnector(seriesEntity)
                 .getObservations(seriesEntity, query).stream()
                 .map((entry) -> createSeriesValueFor((CountDataEntity) entry, seriesEntity, query))

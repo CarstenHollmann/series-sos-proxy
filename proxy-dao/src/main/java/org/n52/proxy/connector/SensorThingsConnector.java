@@ -193,7 +193,7 @@ public class SensorThingsConnector extends AbstractConnector {
         QuantityDataEntity dataEntity = new QuantityDataEntity();
         dataEntity.setTimestart(observation.phenomenonTime);
         dataEntity.setTimeend(observation.phenomenonTime);
-        dataEntity.setValue(new BigDecimal(observation.result));
+        dataEntity.setValue(observation.result);
         return dataEntity;
     }
 

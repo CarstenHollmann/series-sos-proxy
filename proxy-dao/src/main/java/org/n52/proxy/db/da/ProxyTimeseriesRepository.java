@@ -31,7 +31,6 @@ package org.n52.proxy.db.da;
 import static com.google.common.base.Strings.isNullOrEmpty;
 
 import org.hibernate.Session;
-import org.n52.io.response.OptionalOutput;
 import org.n52.io.response.dataset.DatasetOutput;
 import org.n52.io.response.dataset.TimeseriesMetadataOutput;
 import org.n52.series.db.DataAccessException;
@@ -54,7 +53,7 @@ public class ProxyTimeseriesRepository extends TimeseriesRepository {
         TimeseriesMetadataOutput output = super.createExpanded(series, query, session);
         if (isNullOrEmpty(output.getUom())) {
             DatasetOutput datasetOutput = datasetRepository.createExpanded(series, query, session);
-            output.setUom(OptionalOutput.of(datasetOutput.getUom()));
+            output.setUom(datasetOutput.getUom());
         }
         return output;
     }

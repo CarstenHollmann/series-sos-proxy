@@ -130,7 +130,7 @@ public class TrajectorySOSConnector extends AbstractSosConnector {
                 entity.setTimestart(instant.getValue().toDate());
                 entity.setTimeend(instant.getValue().toDate());
                 QuantityValue value = (QuantityValue) obsValue.getValue();
-                entity.setValue(value.getValue());
+                entity.setValue(value.getValue().doubleValue());
                 Collection<NamedValue<?>> parameters = observation.getParameter();
                 parameters.forEach((parameter) -> {
                     if (parameter.getName().getHref().equals(
@@ -179,7 +179,7 @@ public class TrajectorySOSConnector extends AbstractSosConnector {
         QuantityDataEntity quantityDataEntity = new QuantityDataEntity();
         quantityDataEntity.setTimestart(new Date());
         quantityDataEntity.setTimeend(new Date());
-        quantityDataEntity.setValue(new BigDecimal("0.0"));
+        quantityDataEntity.setValue(0.0);
         return of(quantityDataEntity);
     }
 
@@ -189,7 +189,7 @@ public class TrajectorySOSConnector extends AbstractSosConnector {
         QuantityDataEntity quantityDataEntity = new QuantityDataEntity();
         quantityDataEntity.setTimestart(new Date());
         quantityDataEntity.setTimeend(new Date());
-        quantityDataEntity.setValue(new BigDecimal("0.0"));
+        quantityDataEntity.setValue(0.0);
         return of(quantityDataEntity);
     }
 
