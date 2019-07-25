@@ -10,7 +10,7 @@
     <groupId>org.n52.series-api</groupId>
     <artifactId>series-sos-proxy</artifactId>
     <name>Series REST API - SOS Proxy</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-niwa-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -62,9 +62,9 @@
         <hamcrest.version>1.3</hamcrest.version>
         <hibernate.version>4.3.11.Final</hibernate.version>
         <hibernate.spatial.version>4.3.1-52N</hibernate.spatial.version>
-        <arctic-sea.version>3.2.0-SNAPSHOT</arctic-sea.version>
-        <series.api.version>2.0.0-alpha.6</series.api.version>
-        <series.dao.version>2.0.0-alpha.3</series.dao.version>
+        <arctic-sea.version>4.0.0</arctic-sea.version>
+        <series.api.version>2.0.0-niwa-SNAPSHOT</series.api.version>
+        <series.dao.version>2.0.0-niwa-SNAPSHOT</series.dao.version>
 
         <java.compiler.source>1.8</java.compiler.source>
         <java.compiler.target>1.8</java.compiler.target>
