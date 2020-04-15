@@ -1,0 +1,534 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.n52.series-api:proxy-dao:jar:1.0.0-niwa-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.n52.arctic-sea:svalbard-xmlbeans:jar -> duplicate declaration of version (?) @ line 64, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Series REST API - SOS Proxy                                        [pom]
+[INFO] Series REST API - SOS Proxy Mappings Module                        [jar]
+[INFO] Series REST API - SOS Proxy Dao Module                             [jar]
+[INFO] Series REST API - SOS Proxy Webapp                                 [war]
+[INFO] 
+[INFO] ----------------< org.n52.series-api:series-sos-proxy >-----------------
+[INFO] Building Series REST API - SOS Proxy 1.0.0-niwa-SNAPSHOT           [1/4]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ series-sos-proxy ---
+[INFO] Deleting D:\dev\git\series-sos-proxy\target
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ series-sos-proxy ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ series-sos-proxy ---
+[INFO] 
+[INFO] --- whitespace-maven-plugin:1.0.4:trim (default) @ series-sos-proxy ---
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (default) > generate-sources @ series-sos-proxy >>>
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ series-sos-proxy ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ series-sos-proxy ---
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (default) < generate-sources @ series-sos-proxy <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (default) @ series-sos-proxy ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (default) @ series-sos-proxy ---
+[INFO] Not executing Javadoc as the project is not a Java classpath-capable package
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:analyze-only (analyze-dependencies) @ series-sos-proxy ---
+[INFO] Skipping pom project
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ series-sos-proxy ---
+[INFO] Installing D:\dev\git\series-sos-proxy\pom.xml to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\series-sos-proxy\1.0.0-niwa-SNAPSHOT\series-sos-proxy-1.0.0-niwa-SNAPSHOT.pom
+[INFO] 
+[INFO] --- maven-notice-plugin:1.0.6.1:check (default-cli) @ series-sos-proxy ---
+[INFO] Loading license lookup mappings from 'file:/D:/dev/git/series-sos-proxy/etc/license-mappings.xml'
+[INFO] Loading license lookup mappings from 'http://52north.github.io/cdn/licenses/license-mappings.xml'
+[INFO] Parsing Dependencies for: Series REST API - SOS Proxy
+[INFO] Parsing Dependencies for: Series REST API - SOS Proxy Dao Module
+[INFO] Parsing Dependencies for: Series REST API - SOS Proxy Mappings Module
+[INFO] Parsing Dependencies for: Series REST API - SOS Proxy Webapp
+[INFO] NOTICE file is up to date
+[INFO] 
+[INFO] --- license-maven-plugin:2.11:format (default-cli) @ series-sos-proxy ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] -----------------< org.n52.series-api:proxy-mappings >------------------
+[INFO] Building Series REST API - SOS Proxy Mappings Module 1.0.0-niwa-SNAPSHOT [2/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ proxy-mappings ---
+[INFO] Deleting D:\dev\git\series-sos-proxy\proxy-mappings\target
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ proxy-mappings ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ proxy-mappings ---
+[INFO] 
+[INFO] --- whitespace-maven-plugin:1.0.4:trim (default) @ proxy-mappings ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ proxy-mappings ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 30 resources to hbm
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ proxy-mappings ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ proxy-mappings ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\dev\git\series-sos-proxy\proxy-mappings\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ proxy-mappings ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ proxy-mappings ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ proxy-mappings ---
+[INFO] Building jar: D:\dev\git\series-sos-proxy\proxy-mappings\target\proxy-mappings-1.0.0-niwa-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (default) > generate-sources @ proxy-mappings >>>
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ proxy-mappings ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ proxy-mappings ---
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (default) < generate-sources @ proxy-mappings <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (default) @ proxy-mappings ---
+[INFO] Building jar: D:\dev\git\series-sos-proxy\proxy-mappings\target\proxy-mappings-1.0.0-niwa-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (default) @ proxy-mappings ---
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:analyze-only (analyze-dependencies) @ proxy-mappings ---
+[INFO] No dependency problems found
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ proxy-mappings ---
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-mappings\target\proxy-mappings-1.0.0-niwa-SNAPSHOT.jar to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-mappings\1.0.0-niwa-SNAPSHOT\proxy-mappings-1.0.0-niwa-SNAPSHOT.jar
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-mappings\pom.xml to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-mappings\1.0.0-niwa-SNAPSHOT\proxy-mappings-1.0.0-niwa-SNAPSHOT.pom
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-mappings\target\proxy-mappings-1.0.0-niwa-SNAPSHOT-sources.jar to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-mappings\1.0.0-niwa-SNAPSHOT\proxy-mappings-1.0.0-niwa-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-notice-plugin:1.0.6.1:check (default-cli) @ proxy-mappings ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.11:format (default-cli) @ proxy-mappings ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] --------------------< org.n52.series-api:proxy-dao >--------------------
+[INFO] Building Series REST API - SOS Proxy Dao Module 1.0.0-niwa-SNAPSHOT [3/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ proxy-dao ---
+[INFO] Deleting D:\dev\git\series-sos-proxy\proxy-dao\target
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ proxy-dao ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ proxy-dao ---
+[INFO] 
+[INFO] --- whitespace-maven-plugin:1.0.4:trim (default) @ proxy-dao ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ proxy-dao ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ proxy-dao ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to D:\dev\git\series-sos-proxy\proxy-dao\target\classes
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[33,37] org.apache.http.params.CoreConnectionPNames in org.apache.http.params has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[34,37] org.apache.http.params.CoreConnectionPNames in org.apache.http.params has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[45,28] org.apache.http.conn.ClientConnectionManager in org.apache.http.conn has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[48,35] org.apache.http.impl.client.DefaultHttpClient in org.apache.http.impl.client has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/HttpClient.java:[35,35] org.apache.http.impl.client.DefaultHttpClient in org.apache.http.impl.client has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyTimeseriesRepository.java:[35,35] org.n52.io.response.dataset.TimeseriesMetadataOutput in org.n52.io.response.dataset has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyTimeseriesRepository.java:[38,28] org.n52.series.db.da.TimeseriesRepository in org.n52.series.db.da has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyRelatedFeatureDao.java:[85,32] unchecked call to forEach(java.util.function.Consumer<? super T>) as a member of the raw type java.lang.Iterable
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityDataRepository.java:[52,33] found raw type: java.util.Map
+  missing type arguments for generic class java.util.Map<K,V>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityDataRepository.java:[53,29] unchecked conversion
+  required: java.util.Map<java.lang.String,org.n52.proxy.connector.AbstractConnector>
+  found:    java.util.Map
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityDataRepository.java:[63,9] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityDataRepository.java:[69,9] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java:[42,54] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java:[42,26] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java:[44,39] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java:[46,62] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java:[46,30] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java:[48,61] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java:[48,30] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/ServiceConstellation.java:[72,30] found raw type: org.n52.proxy.connector.constellations.DatasetConstellation
+  missing type arguments for generic class org.n52.proxy.connector.constellations.DatasetConstellation<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/ServiceConstellation.java:[122,23] found raw type: org.n52.proxy.connector.constellations.DatasetConstellation
+  missing type arguments for generic class org.n52.proxy.connector.constellations.DatasetConstellation<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/ServiceConstellation.java:[153,24] found raw type: org.n52.proxy.connector.constellations.DatasetConstellation
+  missing type arguments for generic class org.n52.proxy.connector.constellations.DatasetConstellation<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/DatasetConstellation.java:[45,54] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/DatasetConstellation.java:[98,18] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/DatasetConstellation.java:[105,9] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyProcedureDao.java:[79,32] unchecked call to forEach(java.util.function.Consumer<? super T>) as a member of the raw type java.lang.Iterable
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[69,13] found raw type: java.util.Set
+  missing type arguments for generic class java.util.Set<E>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[69,37] found raw type: org.n52.proxy.db.dao.ProxyDatasetDao
+  missing type arguments for generic class org.n52.proxy.db.dao.ProxyDatasetDao<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[71,20] unchecked conversion
+  required: java.util.Set<java.lang.Long>
+  found:    java.util.Set
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[82,17] found raw type: org.n52.proxy.db.dao.ProxyDatasetDao
+  missing type arguments for generic class org.n52.proxy.db.dao.ProxyDatasetDao<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[82,56] unchecked call to removeDatasets(java.util.Set<java.lang.Long>) as a member of the raw type org.n52.proxy.db.dao.ProxyDatasetDao
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[121,17] found raw type: org.n52.proxy.db.dao.ProxyDatasetDao
+  missing type arguments for generic class org.n52.proxy.db.dao.ProxyDatasetDao<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[170,53] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[170,25] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[182,13] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[198,41] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[198,13] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[208,20] found raw type: org.n52.proxy.db.dao.ProxyDatasetDao
+  missing type arguments for generic class org.n52.proxy.db.dao.ProxyDatasetDao<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java:[208,64] unchecked call to getOrInsertInstance(T) as a member of the raw type org.n52.proxy.db.dao.ProxyDatasetDao
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyFeatureDao.java:[87,32] unchecked call to forEach(java.util.function.Consumer<? super T>) as a member of the raw type java.lang.Iterable
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[134,45] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[134,17] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[137,14] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[150,53] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[150,21] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[164,52] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[164,21] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[178,30] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[192,70] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[192,15] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[193,9] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[276,64] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java:[281,64] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[90,53] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[90,21] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[96,52] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[96,21] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[115,45] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[115,17] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[118,14] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java:[131,30] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java:[28,19] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java:[30,9] found raw type: org.n52.shetland.ogc.om.SingleObservationValue
+  missing type arguments for generic class org.n52.shetland.ogc.om.SingleObservationValue<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java:[37,19] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java:[39,9] found raw type: org.n52.shetland.ogc.om.SingleObservationValue
+  missing type arguments for generic class org.n52.shetland.ogc.om.SingleObservationValue<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java:[46,19] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java:[54,43] found raw type: org.n52.shetland.ogc.om.SingleObservationValue
+  missing type arguments for generic class org.n52.shetland.ogc.om.SingleObservationValue<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java:[54,76] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/ProxyException.java:[8,8] serializable class org.n52.proxy.connector.utils.ProxyException has no definition of serialVersionUID
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyServiceDao.java:[82,29] unchecked conversion
+  required: java.util.List<org.n52.proxy.db.beans.ProxyServiceEntity>
+  found:    java.util.List
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyCountDataRepository.java:[57,9] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyCountDataRepository.java:[63,9] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyPhenomenonDao.java:[70,32] unchecked call to forEach(java.util.function.Consumer<? super T>) as a member of the raw type java.lang.Iterable
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[116,45] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[116,17] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[123,14] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[128,17] found raw type: org.n52.shetland.ogc.om.SingleObservationValue
+  missing type arguments for generic class org.n52.shetland.ogc.om.SingleObservationValue<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[158,30] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[177,53] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[177,21] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[187,52] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[187,21] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[253,69] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java:[263,62] found raw type: org.n52.series.db.beans.DatasetEntity
+  missing type arguments for generic class org.n52.series.db.beans.DatasetEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[63,13] org.apache.http.impl.client.DefaultHttpClient in org.apache.http.impl.client has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[88,9] org.apache.http.conn.ClientConnectionManager in org.apache.http.conn has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[89,46] org.apache.http.impl.client.DefaultHttpClient in org.apache.http.impl.client has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[89,72] org.apache.http.impl.client.DefaultHttpClient in org.apache.http.impl.client has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[97,12] org.apache.http.conn.ClientConnectionManager in org.apache.http.conn has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java:[102,12] org.apache.http.impl.client.DefaultHttpClient in org.apache.http.impl.client has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/HttpClient.java:[40,5] org.apache.http.impl.client.DefaultHttpClient in org.apache.http.impl.client has been deprecated
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[49,25] getLastValue(org.n52.series.db.beans.ProfileDatasetEntity,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.proxy.db.da.ProxyQuantityProfileDataRepository implements getLastValue(E,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.series.db.da.DataRepository
+  return type requires unchecked conversion from org.n52.io.response.dataset.profile.ProfileValue to org.n52.io.response.dataset.profile.ProfileValue<java.lang.Double>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[42,25] getFirstValue(org.n52.series.db.beans.ProfileDatasetEntity,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.proxy.db.da.ProxyQuantityProfileDataRepository implements getFirstValue(E,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.series.db.da.DataRepository
+  return type requires unchecked conversion from org.n52.io.response.dataset.profile.ProfileValue to org.n52.io.response.dataset.profile.ProfileValue<java.lang.Double>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[32,33] found raw type: java.util.Map
+  missing type arguments for generic class java.util.Map<K,V>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[33,29] unchecked conversion
+  required: java.util.Map<java.lang.String,org.n52.proxy.connector.AbstractConnector>
+  found:    java.util.Map
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[42,25] getFirstValue(org.n52.series.db.beans.ProfileDatasetEntity,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.proxy.db.da.ProxyQuantityProfileDataRepository overrides getFirstValue(org.n52.series.db.beans.ProfileDatasetEntity,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.series.db.da.QuantityProfileDataRepository
+  return type requires unchecked conversion from org.n52.io.response.dataset.profile.ProfileValue to org.n52.io.response.dataset.profile.ProfileValue<java.lang.Double>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[42,25] getFirstValue(org.n52.series.db.beans.ProfileDatasetEntity,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.proxy.db.da.ProxyQuantityProfileDataRepository overrides getFirstValue(S,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.series.db.da.AbstractDataRepository
+  return type requires unchecked conversion from org.n52.io.response.dataset.profile.ProfileValue to org.n52.io.response.dataset.profile.ProfileValue<java.lang.Double>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[42,12] found raw type: org.n52.io.response.dataset.profile.ProfileValue
+  missing type arguments for generic class org.n52.io.response.dataset.profile.ProfileValue<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[43,9] found raw type: org.n52.series.db.beans.DataEntity
+  missing type arguments for generic class org.n52.series.db.beans.DataEntity<T>
+[WARNING] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java:[49,25] getLastValue(org.n52.series.db.beans.ProfileDatasetEntity,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.proxy.db.da.ProxyQuantityProfileDataRepository overrides getLastValue(org.n52.series.db.beans.ProfileDatasetEntity,org.hibernate.Session,org.n52.series.db.dao.DbQuery) in org.n52.series.db.da.QuantityProfileDataRepository
+  return type requires unchecked conversion from org.n52.io.response.dataset.profile.ProfileValue to org.n52.io.response.dataset.profile.ProfileValue<java.lang.Double>
+[INFO] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyDbQuery.java: Some input files additionally use or override a deprecated API.
+[INFO] /D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java: Some input files additionally use unchecked or unsafe operations.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ proxy-dao ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ proxy-dao ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to D:\dev\git\series-sos-proxy\proxy-dao\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ proxy-dao ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.n52.proxy.GetCapabilitiesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.028 sec - in org.n52.proxy.GetCapabilitiesTest
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ proxy-dao ---
+[INFO] Building jar: D:\dev\git\series-sos-proxy\proxy-dao\target\proxy-dao-1.0.0-niwa-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (default) > generate-sources @ proxy-dao >>>
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ proxy-dao ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ proxy-dao ---
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (default) < generate-sources @ proxy-dao <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (default) @ proxy-dao ---
+[INFO] Building jar: D:\dev\git\series-sos-proxy\proxy-dao\target\proxy-dao-1.0.0-niwa-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (default) @ proxy-dao ---
+[INFO] The goal 'org.apache.maven.plugins:maven-javadoc-plugin:2.10.4:javadoc' has not been previously called for the module: 'org.n52.series-api:proxy-mappings:jar:1.0.0-niwa-SNAPSHOT'. Trying to invoke it...
+[WARNING] Creating fake javadoc directory to prevent repeated invocations: D:\dev\git\series-sos-proxy\proxy-mappings\target\apidocs
+[ERROR] Error fetching link: D:\dev\git\series-sos-proxy\proxy-mappings\target\apidocs/package-list. Ignored it.
+[INFO] Building jar: D:\dev\git\series-sos-proxy\proxy-dao\target\proxy-dao-1.0.0-niwa-SNAPSHOT-javadoc.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:analyze-only (analyze-dependencies) @ proxy-dao ---
+[INFO] No dependency problems found
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ proxy-dao ---
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-dao\target\proxy-dao-1.0.0-niwa-SNAPSHOT.jar to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-dao\1.0.0-niwa-SNAPSHOT\proxy-dao-1.0.0-niwa-SNAPSHOT.jar
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-dao\pom.xml to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-dao\1.0.0-niwa-SNAPSHOT\proxy-dao-1.0.0-niwa-SNAPSHOT.pom
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-dao\target\proxy-dao-1.0.0-niwa-SNAPSHOT-sources.jar to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-dao\1.0.0-niwa-SNAPSHOT\proxy-dao-1.0.0-niwa-SNAPSHOT-sources.jar
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-dao\target\proxy-dao-1.0.0-niwa-SNAPSHOT-javadoc.jar to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-dao\1.0.0-niwa-SNAPSHOT\proxy-dao-1.0.0-niwa-SNAPSHOT-javadoc.jar
+[INFO] 
+[INFO] --- maven-notice-plugin:1.0.6.1:check (default-cli) @ proxy-dao ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.11:format (default-cli) @ proxy-dao ---
+[INFO] Updating license headers...
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractConnector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/AbstractSosConnector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/config/DataSourcesConfiguration.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/config/DataSourceConfiguration.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/config/ConfigurationReader.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/CountDatasetConstellation.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/config/DataSourceJobConfiguration.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/QuantityDatasetConstellation.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/ProfileDatasetConstellation.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/TextDatasetConstellation.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/constellations/DatasetConstellation.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/HydroSOSConnector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/OceanotronSosConnector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SensorThingsConnector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/SOS2Connector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/NestedOfferingsSOSConnector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/ConnectorHelper.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/TrajectorySOSConnector.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/DataEntityBuilder.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/EntityBuilder.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/ProxyException.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/connector/utils/ServiceConstellation.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/beans/ProxyServiceEntity.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/beans/RelatedFeatureRoleEntity.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/DataRepositoryFactory.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/InsertRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/beans/RelatedFeatureEntity.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyDataRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyDatasetRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityDataRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyQuantityProfileDataRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyTimeseriesRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyTextDataRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ClearDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/da/ProxyCountDataRepository.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/InsertDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyCategoryDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyDataDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyDbQuery.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyDatasetDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyFeatureDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyDbQueryFactory.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyOfferingDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyPhenomenonDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyProcedureDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyServiceDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/decode/SamplingFeatureDecoder.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/decode/JTSConverter.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyRelatedFeatureRoleDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/harvest/DataSourceHarvesterJob.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/db/dao/ProxyRelatedFeatureDao.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/harvest/DataSourceHarvesterScheduler.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/HttpClient.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Datastream.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Datastreams.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/proxy/web/SimpleHttpClient.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Locations.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Observation.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Location.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Observations.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/ObservedProperty.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/SensorThingsElement.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Sensor.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/SensorThingsCollection.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Thing.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/test/java/org/n52/proxy/GetCapabilitiesTest.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Point.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/Things.java
+[INFO] Updating license header in: D:/dev/git/series-sos-proxy/proxy-dao/src/main/java/org/n52/sensorthings/UnitOfMeasurement.java
+[INFO] 
+[INFO] ------------------< org.n52.series-api:proxy-webapp >-------------------
+[INFO] Building Series REST API - SOS Proxy Webapp 1.0.0-niwa-SNAPSHOT    [4/4]
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ proxy-webapp ---
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ proxy-webapp ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ proxy-webapp ---
+[INFO] 
+[INFO] --- whitespace-maven-plugin:1.0.4:trim (default) @ proxy-webapp ---
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:unpack (default) @ proxy-webapp ---
+[INFO] Configured Artifact: org.n52.series-api:rest:?:jar
+[INFO] Unpacking C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\rest\2.0.0-niwa-SNAPSHOT\rest-2.0.0-niwa-SNAPSHOT.jar to D:\dev\git\series-sos-proxy\proxy-webapp\target\proxy-webapp with includes "api-doc/**" and excludes ""
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ proxy-webapp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 16 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ proxy-webapp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ proxy-webapp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\dev\git\series-sos-proxy\proxy-webapp\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ proxy-webapp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ proxy-webapp ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.6:war (default-war) @ proxy-webapp ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [proxy-webapp] in [D:\dev\git\series-sos-proxy\proxy-webapp\target\proxy-webapp]
+[INFO] Processing war project
+[INFO] Copying webapp webResources [D:\dev\git\series-sos-proxy\proxy-webapp\src/main/webapp] to [D:\dev\git\series-sos-proxy\proxy-webapp\target\proxy-webapp]
+[INFO] Copying webapp resources [D:\dev\git\series-sos-proxy\proxy-webapp\src\main\webapp]
+[INFO] Webapp assembled in [1445 msecs]
+[INFO] Building war: D:\dev\git\series-sos-proxy\proxy-webapp\target\proxy-webapp.war
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (default) > generate-sources @ proxy-webapp >>>
+[INFO] 
+[INFO] --- git-commit-id-plugin:2.2.1:revision (default) @ proxy-webapp ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (default) @ proxy-webapp ---
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (default) < generate-sources @ proxy-webapp <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (default) @ proxy-webapp ---
+[INFO] Building jar: D:\dev\git\series-sos-proxy\proxy-webapp\target\proxy-webapp-sources.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:2.10.4:jar (default) @ proxy-webapp ---
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:analyze-only (analyze-dependencies) @ proxy-webapp ---
+[INFO] No dependency problems found
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ proxy-webapp ---
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-webapp\target\proxy-webapp.war to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-webapp\1.0.0-niwa-SNAPSHOT\proxy-webapp-1.0.0-niwa-SNAPSHOT.war
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-webapp\pom.xml to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-webapp\1.0.0-niwa-SNAPSHOT\proxy-webapp-1.0.0-niwa-SNAPSHOT.pom
+[INFO] Installing D:\dev\git\series-sos-proxy\proxy-webapp\target\proxy-webapp-sources.jar to C:\Users\CarstenHollmann\.m2\repository\org\n52\series-api\proxy-webapp\1.0.0-niwa-SNAPSHOT\proxy-webapp-1.0.0-niwa-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-notice-plugin:1.0.6.1:check (default-cli) @ proxy-webapp ---
+[INFO] 
+[INFO] --- license-maven-plugin:2.11:format (default-cli) @ proxy-webapp ---
+[INFO] Updating license headers...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Series REST API - SOS Proxy 1.0.0-niwa-SNAPSHOT:
+[INFO] 
+[INFO] Series REST API - SOS Proxy ........................ SUCCESS [ 13.388 s]
+[INFO] Series REST API - SOS Proxy Mappings Module ........ SUCCESS [  4.301 s]
+[INFO] Series REST API - SOS Proxy Dao Module ............. SUCCESS [ 33.748 s]
+[INFO] Series REST API - SOS Proxy Webapp ................. SUCCESS [ 14.730 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:07 min
+[INFO] Finished at: 2020-04-15T14:21:07+02:00
+[INFO] ------------------------------------------------------------------------

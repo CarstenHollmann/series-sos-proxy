@@ -1,0 +1,72 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.6.RELEASE)
+
+13:56:52.189 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+13:56:52.898 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 628ms. Found 13 JPA repository interfaces.
+13:56:57.769 [main] INFO  log - Logging initialized @15378ms to org.eclipse.jetty.util.log.Slf4jLog
+13:56:59.050 [main] INFO  JettyServletWebServerFactory - Server initialized with port: 8081
+13:56:59.053 [main] INFO  Server - jetty-9.4.27.v20200227; built: 2020-02-27T18:37:21.340Z; git: a304fd9f351f337e7c0e2a7c28878dd536149c6c; jvm 1.8.0_201-b09
+13:56:59.166 [main] INFO  application - Initializing Spring embedded WebApplicationContext
+13:56:59.166 [main] INFO  ContextLoader - Root WebApplicationContext: initialization completed in 9998 ms
+13:57:00.250 [main] INFO  session - DefaultSessionIdManager workerName=node0
+13:57:00.253 [main] INFO  session - No SessionScavenger set, using defaults
+13:57:00.255 [main] INFO  session - node0 Scavenging every 600000ms
+13:57:00.291 [main] INFO  ContextHandler - Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@68b3248a{application,/api,[file:///C:/Users/CarstenHollmann/AppData/Local/Temp/jetty-docbase.5670675022898981612.8081/],AVAILABLE}
+13:57:00.291 [main] INFO  Server - Started @17898ms
+13:57:00.636 [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default-unit]
+13:57:00.863 [main] INFO  Version - HHH000412: Hibernate ORM core version 5.4.12.Final
+13:57:01.217 [main] INFO  SpatialService - HHH80000001: hibernate-spatial integration enabled : true
+13:57:01.311 [main] INFO  Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+13:57:03.460 [main] INFO  Dialect - HHH000400: Using dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+13:57:04.332 [main] INFO  beans - HHH10005002: No explicit CDI BeanManager reference was passed to Hibernate, but CDI is available on the Hibernate ClassLoader.
+13:57:08.314 [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+13:57:08.652 [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+13:57:10.619 [main] INFO  JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+13:57:10.638 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default-unit'
+13:57:14.416 [main] WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+13:57:15.351 [main] WARN  ContentNegotiatingViewResolver - No ViewResolvers configured
+13:57:20.541 [main] INFO  StdSchedulerFactory - Using default implementation for ThreadExecutor
+13:57:20.579 [main] INFO  SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+13:57:20.579 [main] INFO  QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+13:57:20.581 [main] INFO  RAMJobStore - RAMJobStore initialized.
+13:57:20.596 [main] INFO  QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'dataSourceScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+13:57:20.598 [main] INFO  StdSchedulerFactory - Quartz scheduler 'dataSourceScheduler' initialized from an externally provided properties instance.
+13:57:20.598 [main] INFO  StdSchedulerFactory - Quartz scheduler version: 2.3.2
+13:57:20.599 [main] INFO  QuartzScheduler - JobFactory set to: org.n52.io.task.AutowiringSpringBeanJobFactory@5b270c33
+13:57:21.650 [main] INFO  StdSchedulerFactory - Using default implementation for ThreadExecutor
+13:57:21.650 [main] INFO  SchedulerSignalerImpl - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+13:57:21.650 [main] INFO  QuartzScheduler - Quartz Scheduler v.2.3.2 created.
+13:57:21.650 [main] INFO  RAMJobStore - RAMJobStore initialized.
+13:57:21.650 [main] INFO  QuartzScheduler - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+13:57:21.650 [main] INFO  StdSchedulerFactory - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+13:57:21.650 [main] INFO  StdSchedulerFactory - Quartz scheduler version: 2.3.2
+13:57:21.650 [main] INFO  QuartzScheduler - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@161e7cbc
+13:57:21.709 [main] INFO  EndpointLinksResolver - Exposing 2 endpoint(s) beneath base path '/actuator'
+13:57:21.843 [main] INFO  SchedulerFactoryBean - Starting Quartz Scheduler now
+13:57:21.843 [main] INFO  QuartzScheduler - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+13:57:21.893 [main] INFO  application - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:57:21.893 [main] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:57:21.914 [main] INFO  DispatcherServlet - Completed initialization in 21 ms
+13:57:21.972 [main] INFO  AbstractConnector - Started ServerConnector@5873f3f0{HTTP/1.1, (http/1.1)}{0.0.0.0:8081}
+13:57:21.972 [main] INFO  JettyWebServer - Jetty started on port(s) 8081 (http/1.1) with context path '/api'
+13:57:26.236 [Thread-12] INFO  QuartzScheduler - Scheduler dataSourceScheduler_$_NON_CLUSTERED started.

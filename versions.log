@@ -1,0 +1,124 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Series REST API - SOS Proxy                                        [pom]
+[INFO] Series REST API - SOS Proxy Mappings Module                        [jar]
+[INFO] Series REST API - SOS Proxy Dao Module                             [jar]
+[INFO] Series REST API - SOS Proxy Webapp                                 [war]
+[INFO] 
+[INFO] ----------------< org.n52.series-api:series-sos-proxy >-----------------
+[INFO] Building Series REST API - SOS Proxy 2.0.0-SNAPSHOT                [1/4]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.7:display-dependency-updates (default-cli) @ series-sos-proxy ---
+[INFO] The following dependencies in Dependency Management have newer versions:
+[INFO]   ch.qos.logback:logback-classic ................. 1.2.3 -> 1.3.0-alpha4
+[INFO]   com.fasterxml.jackson.core:jackson-annotations ... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-core .......... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-databind ...... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.github.spotbugs:spotbugs-annotations ....... 3.1.12 -> 4.0.0-beta3
+[INFO]   commons-codec:commons-codec ............................. 1.12 -> 1.13
+[INFO]   junit:junit ...................................... 4.12 -> 4.13-beta-3
+[INFO]   org.hibernate:hibernate-core ............. 5.4.3.Final -> 6.0.0.Alpha2
+[INFO]   org.postgresql:postgresql ...................... 42.2.5 -> 42.2.6.jre7
+[INFO]   org.slf4j:jcl-over-slf4j ...................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:log4j-over-slf4j .................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:slf4j-api ........................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   xml-apis:xml-apis .................................... 1.4.01 -> 2.0.2
+[INFO] 
+[INFO] The following dependencies in pluginManagement of plugins have newer versions:
+[INFO]   com.github.spotbugs:spotbugs .................... 3.1.8 -> 4.0.0-beta3
+[INFO]   com.puppycrawl.tools:checkstyle ......................... 8.14 -> 8.22
+[INFO] 
+[INFO] 
+[INFO] -----------------< org.n52.series-api:proxy-mappings >------------------
+[INFO] Building Series REST API - SOS Proxy Mappings Module 2.0.0-SNAPSHOT [2/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.7:display-dependency-updates (default-cli) @ proxy-mappings ---
+[INFO] The following dependencies in Dependency Management have newer versions:
+[INFO]   ch.qos.logback:logback-classic ................. 1.2.3 -> 1.3.0-alpha4
+[INFO]   com.fasterxml.jackson.core:jackson-annotations ... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-core .......... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-databind ...... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.github.spotbugs:spotbugs-annotations ....... 3.1.12 -> 4.0.0-beta3
+[INFO]   commons-codec:commons-codec ............................. 1.12 -> 1.13
+[INFO]   junit:junit ...................................... 4.12 -> 4.13-beta-3
+[INFO]   org.hibernate:hibernate-core ............. 5.4.3.Final -> 6.0.0.Alpha2
+[INFO]   org.postgresql:postgresql ...................... 42.2.5 -> 42.2.6.jre7
+[INFO]   org.slf4j:jcl-over-slf4j ...................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:log4j-over-slf4j .................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:slf4j-api ........................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   xml-apis:xml-apis .................................... 1.4.01 -> 2.0.2
+[INFO] 
+[INFO] The following dependencies in pluginManagement of plugins have newer versions:
+[INFO]   com.github.spotbugs:spotbugs .................... 3.1.8 -> 4.0.0-beta3
+[INFO]   com.puppycrawl.tools:checkstyle ......................... 8.14 -> 8.22
+[INFO] 
+[INFO] 
+[INFO] --------------------< org.n52.series-api:proxy-dao >--------------------
+[INFO] Building Series REST API - SOS Proxy Dao Module 2.0.0-SNAPSHOT     [3/4]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.7:display-dependency-updates (default-cli) @ proxy-dao ---
+[INFO] The following dependencies in Dependency Management have newer versions:
+[INFO]   ch.qos.logback:logback-classic ................. 1.2.3 -> 1.3.0-alpha4
+[INFO]   com.fasterxml.jackson.core:jackson-annotations ... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-core .......... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-databind ...... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.github.spotbugs:spotbugs-annotations ....... 3.1.12 -> 4.0.0-beta3
+[INFO]   commons-codec:commons-codec ............................. 1.12 -> 1.13
+[INFO]   junit:junit ...................................... 4.12 -> 4.13-beta-3
+[INFO]   org.hibernate:hibernate-core ............. 5.4.3.Final -> 6.0.0.Alpha2
+[INFO]   org.postgresql:postgresql ...................... 42.2.5 -> 42.2.6.jre7
+[INFO]   org.slf4j:jcl-over-slf4j ...................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:log4j-over-slf4j .................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:slf4j-api ........................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   xml-apis:xml-apis .................................... 1.4.01 -> 2.0.2
+[INFO] 
+[INFO] No dependencies in Dependencies have newer versions.
+[INFO] 
+[INFO] The following dependencies in pluginManagement of plugins have newer versions:
+[INFO]   com.github.spotbugs:spotbugs .................... 3.1.8 -> 4.0.0-beta3
+[INFO]   com.puppycrawl.tools:checkstyle ......................... 8.14 -> 8.22
+[INFO] 
+[INFO] 
+[INFO] ------------------< org.n52.series-api:proxy-webapp >-------------------
+[INFO] Building Series REST API - SOS Proxy Webapp 2.0.0-SNAPSHOT         [4/4]
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.7:display-dependency-updates (default-cli) @ proxy-webapp ---
+[INFO] The following dependencies in Dependency Management have newer versions:
+[INFO]   ch.qos.logback:logback-classic ................. 1.2.3 -> 1.3.0-alpha4
+[INFO]   com.fasterxml.jackson.core:jackson-annotations ... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-core .......... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.fasterxml.jackson.core:jackson-databind ...... 2.9.9 -> 2.10.0.pr1
+[INFO]   com.github.spotbugs:spotbugs-annotations ....... 3.1.12 -> 4.0.0-beta3
+[INFO]   commons-codec:commons-codec ............................. 1.12 -> 1.13
+[INFO]   junit:junit ...................................... 4.12 -> 4.13-beta-3
+[INFO]   net.postgis:postgis-jdbc .............................. 2.2.0 -> 2.3.0
+[INFO]   org.hibernate:hibernate-core ............. 5.4.3.Final -> 6.0.0.Alpha2
+[INFO]   org.postgresql:postgresql ............... 9.4.1208.jre7 -> 42.2.6.jre7
+[INFO]   org.slf4j:jcl-over-slf4j ...................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:log4j-over-slf4j .................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   org.slf4j:slf4j-api ........................... 1.7.26 -> 2.0.0-alpha0
+[INFO]   xml-apis:xml-apis .................................... 1.4.01 -> 2.0.2
+[INFO] 
+[INFO] The following dependencies in pluginManagement of plugins have newer versions:
+[INFO]   com.github.spotbugs:spotbugs .................... 3.1.8 -> 4.0.0-beta3
+[INFO]   com.puppycrawl.tools:checkstyle ......................... 8.14 -> 8.22
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Series REST API - SOS Proxy 2.0.0-SNAPSHOT:
+[INFO] 
+[INFO] Series REST API - SOS Proxy ........................ SUCCESS [  3.085 s]
+[INFO] Series REST API - SOS Proxy Mappings Module ........ SUCCESS [  0.516 s]
+[INFO] Series REST API - SOS Proxy Dao Module ............. SUCCESS [  0.326 s]
+[INFO] Series REST API - SOS Proxy Webapp ................. SUCCESS [  0.422 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.475 s
+[INFO] Finished at: 2019-07-25T15:07:03+02:00
+[INFO] ------------------------------------------------------------------------
